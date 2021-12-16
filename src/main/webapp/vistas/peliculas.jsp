@@ -137,7 +137,7 @@
 												<div class="d-flex mt-auto justify-content-center">
 													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/borrarPelicula.ad"
 														class="botondes learn-more d-flex"> <span
-														class="circle" aria-hidden="true" id="botonAdmin">>
+														class="circle" aria-hidden="true" id="botonAdmin">
 															<span class="icon arrow"></span>
 													</span> <span class="button-text mx-auto">Eliminar</span>
 													</a>
@@ -176,7 +176,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/crearPelicula.ad" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/crearPelicula.ad" method="post">
 
 							<label for="titulo">Titulo de película</label>
 							<div class="form-floating mb-3">

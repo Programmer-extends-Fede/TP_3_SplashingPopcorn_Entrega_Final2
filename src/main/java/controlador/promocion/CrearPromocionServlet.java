@@ -20,21 +20,16 @@ public class CrearPromocionServlet extends HttpServlet implements Servlet {
 		this.servicioPromocion = new ServicioPromocion();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		//pasa lo mismo que con editar, hay que traer las pelis por los id
 		
 		String titulo = request.getParameter("titulo");
-		String pelicula1 = request.getParameter("pelicula1");
-		String pelicula2 = request.getParameter("pelicula2");
-		String pelicula3 = request.getParameter("pelicula3");
-		String descripcion = request.getParameter("descripcion");
+		int pelicula1 = Integer.parseInt(request.getParameter("id"));
+		int pelicula2 = Integer.parseInt(request.getParameter("id"));
+		int pelicula3 = Integer.parseInt(request.getParameter("id"));
 		String urlPortada = request.getParameter("urlPortada");
+		
 		
 	}
 

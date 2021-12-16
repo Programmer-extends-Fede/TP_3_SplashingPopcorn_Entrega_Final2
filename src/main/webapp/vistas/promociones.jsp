@@ -191,7 +191,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo}">
+										<option value="${pelicula1.titulo} - ${pelicula1.id}">
 									</c:forEach>
 								</datalist>
 
@@ -203,7 +203,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${pelicula2.titulo}">
+										<option value="${pelicula2.titulo} - ${pelicula2.id}">
 									</c:forEach>
 								</datalist>
 
@@ -214,7 +214,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${pelicula3.titulo}">
+										<option value="${pelicula3.titulo} - ${pelicula3.id}">
 									</c:forEach>
 								</datalist>
 
@@ -283,7 +283,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo}">
+										<option value="${pelicula1.titulo} - ${pelicula1.id}">
 									</c:forEach>
 								</datalist>
 
@@ -294,7 +294,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${pelicula2.titulo}">
+										<option value="${pelicula2.titulo} - ${pelicula2.id}">
 									</c:forEach>
 								</datalist>
 
@@ -305,7 +305,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${pelicula3.titulo}">
+										<option value="${pelicula3.titulo} - ${pelicula3.id}">
 									</c:forEach>
 								</datalist>
 
