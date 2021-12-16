@@ -108,7 +108,7 @@
 												</div>
 												<div class="d-flex mt-auto justify-content-center">
 													<a
-														href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}}"
+														href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}"
 														class="botondes learn-more d-flex"> <span
 														class="circle" aria-hidden="true"> <span
 															class="icon arrow"></span>
@@ -191,7 +191,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo} - ${pelicula1.id}">
+										<option value="${pelicula1.id}"><c:out value="${pelicula.titulo}"></c:out>
 									</c:forEach>
 								</datalist>
 
@@ -203,7 +203,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${pelicula2.titulo} - ${pelicula2.id}">
+										<option value="${pelicula2.id}"><c:out value="${pelicula.titulo}"></c:out>
 									</c:forEach>
 								</datalist>
 
@@ -214,7 +214,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${pelicula3.titulo} - ${pelicula3.id}">
+										<option value="${pelicula3.id}"><c:out value="${pelicula.titulo}"></c:out>
 									</c:forEach>
 								</datalist>
 
@@ -283,7 +283,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo} - ${pelicula1.id}">
+										<option value="${pelicula1.id}"><c:out value="${pelicula.titulo}"></c:out>
 									</c:forEach>
 								</datalist>
 
@@ -294,7 +294,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${pelicula2.titulo} - ${pelicula2.id}">
+										<option value="${pelicula2.id}"><c:out value="${pelicula.titulo}"></c:out></option>
 									</c:forEach>
 								</datalist>
 
@@ -305,7 +305,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${pelicula3.titulo} - ${pelicula3.id}">
+										<option value="${pelicula3.id}"><c:out value="${pelicula.titulo}"></c:out></option>
 									</c:forEach>
 								</datalist>
 

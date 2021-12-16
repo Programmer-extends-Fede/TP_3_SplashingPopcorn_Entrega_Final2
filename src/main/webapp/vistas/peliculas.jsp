@@ -51,10 +51,15 @@
 		<c:if test="${usuario.esAdmin()}">
 			<div id="menuAdmin"
 				class="nav nav-pills position-absolute top-0 end-0">
-				<a href="/peliculas/crearPelicula.ad" type="button" class="btn btn-success" id="botonCrear">Crear
-					película</a>
-				<a href="/generos/crearGenero.ad" type="button" class="btn btn-success" id="botonCrear">Crear
-					género</a>
+				<button type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal" data-bs-target="#modalCrearPelicula" id="botonCrear">Crear
+					película</button>
+				<button type="button"
+					class="btn btn-success"
+					data-bs-toggle="modal" data-bs-target="#modalCrearGenero" id="botonCrear">Crear
+					película</button>
+				
 
 			</div>
 		</c:if>
@@ -291,7 +296,7 @@
 
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/genero/crearGenero.ad" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/crearGenero.ad" method="post">
 
 							<label for="genero">Nuevo género</label>
 							<div class="form-floating mb-3">
@@ -330,7 +335,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/editarPelicula.ad" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/editarPelicula.ad" method="post">
 							<label for="titulo">Titulo de película</label>
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control rounded-4" id="titulo"
