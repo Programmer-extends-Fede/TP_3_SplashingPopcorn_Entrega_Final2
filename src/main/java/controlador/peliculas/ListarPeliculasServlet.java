@@ -10,8 +10,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Genero;
 import modelo.Pelicula;
-import persistencia.Genero;
 import servicios.ServicioGenero;
 import servicios.ServicioPelicula;
 

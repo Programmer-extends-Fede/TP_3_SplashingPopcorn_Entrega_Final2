@@ -10,20 +10,20 @@
 <jsp:include page="../parciales/librerias.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/index.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/botones.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/botones.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/estiloPeliculas.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/estiloPeliculas.css">
 
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/filtrarGeneros.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.pajinate.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.resize.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize.js"></script>
 
 </head>
 
@@ -71,81 +71,85 @@
 							</a>
 						</c:forEach>
 					</div>
-					
-									<!-- CONTENEDOR DE CARDS -->
 
-				<div class="d-flex col-12 flex-column mt-0 mb-3"
-					id="contenedor-cards">
+					<!-- CONTENEDOR DE CARDS -->
 
-					<!-- TABLA DE CARDS -->
-					<div class="row justify-content-around contenido m-0 mb-4">
-						<!-- CARD -->
-						<c:forEach items="${promociones}" var="promocion">
-							<div
-								class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
-								data-type="${promocion.getGenero()}">
+					<div class="d-flex col-12 flex-column mt-0 mb-3"
+						id="contenedor-cards">
+
+						<!-- TABLA DE CARDS -->
+						<div class="row justify-content-around contenido m-0 mb-4">
+							<!-- CARD -->
+							<c:forEach items="${promociones}" var="promocion">
 								<div
-									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
-									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%');">
-									<!-- IMAGEN CARD -->
+									class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2">
+									<div
+										class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
+										data-type="${promocion.getGenero()}"
+										style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%');">
+										<!-- IMAGEN CARD -->
 
-									<div class="fondo-portada mx-auto"
-										style="background-image: url('../${promocion.urlPortada}');">
-									</div>
+										<div class="fondo-portada mx-auto"
+											style="background-image: url('../${promocion.urlPortada}');">
+										</div>
 
-									<!-- DESCRIPCION CARD -->
-									<div class="col d-flex p-0">
-										<div class="row m-0 my-2 w-100" id="contenedorDescrip">
-											<div class="d-flex">
-												<p class="titulo-carta h3 mx-auto text-center text-white">
-													<c:out value="${promocion.titulo}"></c:out>
-													<br>
-													<c:out value="Duración: ${promocion.getDuracion()} min"></c:out>
-													<br>
-													<c:out value="Precio: $ ${promocion.getPrecio()}"></c:out>
-													<br>
-												</p>
-											</div>
-											<div class="d-flex mt-auto justify-content-center">
-												<a href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}}"
-												 class="botondes learn-more d-flex"> <span
-													class="circle" aria-hidden="true"> <span
-														class="icon arrow"></span>
-												</span> <span class="button-text mx-auto">Ver</span>
-												</a>
-											</div>
-
-											<c:if test="${usuario.esAdmin()}">
-												<div class="d-flex mt-auto justify-content-center">
-													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
-														class="botondes learn-more d-flex"> <span
-														class="circle" aria-hidden="true" id="botonAdmin">
-															<span class="icon arrow"></span>
-													</span> <span class="button-text mx-auto">Editar</span>
-													</a>
+										<!-- DESCRIPCION CARD -->
+										<div class="col d-flex p-0">
+											<div class="row m-0 my-2 w-100" id="contenedorDescrip">
+												<div class="d-flex">
+													<p class="titulo-carta h3 mx-auto text-center text-white">
+														<c:out value="${promocion.titulo}"></c:out>
+														<br>
+														<c:out value="Duración: ${promocion.getDuracion()} min"></c:out>
+														<br>
+														<c:out value="Precio: $ ${promocion.getPrecio()}"></c:out>
+														<br>
+													</p>
 												</div>
 												<div class="d-flex mt-auto justify-content-center">
-													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/borrarPromocion.ad"
+													<a
+														href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}}"
 														class="botondes learn-more d-flex"> <span
-														class="circle" aria-hidden="true" id="botonAdmin">>
-															<span class="icon arrow"></span>
-													</span> <span class="button-text mx-auto">Eliminar</span>
+														class="circle" aria-hidden="true"> <span
+															class="icon arrow"></span>
+													</span> <span class="button-text mx-auto">Ver</span>
 													</a>
 												</div>
-											</c:if>
 
+												<c:if test="${usuario.esAdmin()}">
+													<div class="d-flex mt-auto justify-content-center">
+														<a
+															href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
+															class="botondes learn-more d-flex"> <span
+															class="circle" aria-hidden="true" id="botonAdmin">
+																<span class="icon arrow"></span>
+														</span> <span class="button-text mx-auto">Editar</span>
+														</a>
+													</div>
+													<div class="d-flex mt-auto justify-content-center">
+														<a
+															href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/borrarPromocion.ad"
+															class="botondes learn-more d-flex"> <span
+															class="circle" aria-hidden="true" id="botonAdmin">>
+																<span class="icon arrow"></span>
+														</span> <span class="button-text mx-auto">Eliminar</span>
+														</a>
+													</div>
+												</c:if>
+
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</c:forEach>
+							</c:forEach>
+						</div>
+						<!-- PAGINADOR -->
+						<div
+							class="row text-center m-0 mt-auto p-4 border-top border-dark">
+							<div class="page_navigation"></div>
+						</div>
 					</div>
-					<!-- PAGINADOR -->
-					<div class="row text-center m-0 mt-auto p-4 border-top border-dark">
-						<div class="page_navigation"></div>
-					</div>
-				</div>
-					
+
 
 
 
@@ -169,7 +173,9 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/crearPromocion.ad" method="post">
+						<form
+							action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/crearPromocion.ad"
+							method="post">
 
 							<label for="titulo">Titulo de promoción</label>
 							<div class="form-floating mb-3">
@@ -180,36 +186,34 @@
 							</div>
 
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película:</label> <input
-									list="listaPeliculas" id="peliculasEnPromos"
-									name="peliculasEnPromos" />
+								<label for="pelicula1">Elija una película:</label> <input
+									list="listaPeliculas" id="pelicula1" name="pelicula1" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula1">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película:</label> <input
+								<label for="pelicula2">Elija una película:</label> <input
 									list="listaPeliculas" id="peliculasEnPromos"
 									name="peliculasEnPromos" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula2">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película:</label> <input
-									list="listaPeliculas" id="peliculasEnPromos"
-									name="peliculasEnPromos" />
+								<label for="pelicula3">Elija una película:</label> <input
+									list="listaPeliculas" id="pelicula3" name="peliculasEnPromos" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula3">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
@@ -224,12 +228,13 @@
 								<div class="invalid-feedback">Introduzca la descripción
 									por favor</div>
 							</div>
+							
 							<div class="form-floating mb-3">
-								<input type="image" class="form-control rounded-4"
+								<label for="urlPortada">Foto de portada</label>
+								<input type="file" class="form-control"
 									id="urlPortada" name="urlPortada" required
-									value="${pelicula.urlPortada}"> <label for="urlPortada">Nombre
-									de película</label>
-								<div class="invalid-feedback">Introduzca la imagen por
+									value="${promocion.urlPortada}"> 
+								<div class="invalid-feedback">Introduzca una imagen por
 									favor</div>
 							</div>
 
@@ -261,7 +266,8 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
+						<form
+							action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
 							method="post">
 							<label for="titulo">Titulo de promoción</label>
 							<div class="form-floating mb-3">
@@ -272,36 +278,33 @@
 							</div>
 
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película</label> <input
-									list="listaPeliculas" id="peliculasEnPromos"
-									name="peliculasEnPromos" />
+								<label for="pelicula1">Elija una película</label> <input
+									list="listaPeliculas" id="pelicula1" name="peliculasEnPromos" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula1">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película</label> <input
-									list="listaPeliculas" id="peliculasEnPromos"
-									name="peliculasEnPromos" />
+								<label for="pelicula2">Elija una película</label> <input
+									list="listaPeliculas" id="pelicula2" name="peliculasEnPromos" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula2">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija una película</label> <input
-									list="listaPeliculas" id="peliculasEnPromos"
-									name="peliculasEnPromos" />
+								<label for="pelicula3">Elija una película</label> <input
+									list="listaPeliculas" id="pelicula3" name="peliculasEnPromos" />
 
 								<datalist id="listaPeliculas">
-									<c:forEach items="${peliculas}" var="peliculas">
+									<c:forEach items="${peliculas}" var="pelicula3">
 										<option value="${peliculas.titulo}">
 									</c:forEach>
 								</datalist>
@@ -315,7 +318,16 @@
 								<div class="invalid-feedback">Introduzca la descripción
 									por favor</div>
 							</div>
-
+							
+							<div class="form-floating mb-3">
+								<label for="urlPortada">Foto de portada</label>
+								<input type="file" class="form-control"
+									id="urlPortada" name="urlPortada" required
+									value="${promocion.urlPortada}"> 
+								<div class="invalid-feedback">Introduzca una imagen por
+									favor</div>
+							</div>
+							
 
 							<button type="submit"
 								class="w-100 mb-2 btn btn-lg rounded-4 btn-warning">Guardar

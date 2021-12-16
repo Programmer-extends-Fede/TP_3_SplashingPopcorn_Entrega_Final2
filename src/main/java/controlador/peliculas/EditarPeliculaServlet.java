@@ -40,7 +40,7 @@ public class EditarPeliculaServlet extends HttpServlet implements Servlet {
 
 		//metodo que valide los datos antes de parsear
 		
-		int id = Integer.parseInt(request.getParameter("id"));
+		int id = Integer.parseInt(request.getParameter("id"));//esto no se edita pero lo recibe igual?
 		String titulo = request.getParameter("titulo");
 		int precio = Integer.parseInt(request.getParameter("precio"));
 		int duracion = Integer.parseInt(request.getParameter("duracion"));

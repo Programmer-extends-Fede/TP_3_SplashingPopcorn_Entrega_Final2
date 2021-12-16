@@ -13,16 +13,16 @@ $(document).ready(function(){
 		$(this).addClass('item-activado');
 
 		// OCULTANDO PRODUCTOS =========================
-		$('.card').css('transform', 'scale(0)');
+		$('.carta').css('transform', 'scale(0)');
 		function hideCard(){
-			$('.card').parent().hide();
+			$('.carta').parent().hide();
 		} setTimeout(hideCard,200);
 
 		
 		// MOSTRANDO PRODUCTOS =========================
 		function showCard(){
-			$('.card[data-type="'+genero+'"]').parent().show();
-			$('.card[data-type="'+genero+'"]').css('transform', 'scale(1)');
+			$('.carta[data-type="'+genero+'"]').parent().show();
+			$('.carta[data-type="'+genero+'"]').css('transform', 'scale(1)');
 		} setTimeout(showCard,200);
 		
 	});
@@ -31,8 +31,8 @@ $(document).ready(function(){
 
 	$('.genero-item[data-type="todos"]').click(function(){
 		function showAll(){
-			$('.card').parent().show();
-			$('.card').css('transform', 'scale(1)');
+			$('.carta').parent().show();
+			$('.carta').css('transform', 'scale(1)');
 		} setTimeout(showAll,200);
 	});
 });

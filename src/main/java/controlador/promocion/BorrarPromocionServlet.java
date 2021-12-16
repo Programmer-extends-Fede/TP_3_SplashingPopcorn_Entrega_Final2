@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import servicios.ServicioPromocion;
 
-@WebServlet("/borrarPromocion")
+@WebServlet("/borrarPromocion.ad")
 public class BorrarPromocionServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = -1393783007483630823L;

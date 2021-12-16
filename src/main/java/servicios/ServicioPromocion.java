@@ -14,7 +14,7 @@ public class ServicioPromocion {
 	public ArrayList<Promocion> listar() {
 		return promocionDAO.cargar();
 	}
-
+	
 	public Promocion editar(int id, String titulo, ArrayList<Pelicula> peliculas, String descripcion,
 			String urlPortada) {
 		Promocion promocion = buscarPor(id);

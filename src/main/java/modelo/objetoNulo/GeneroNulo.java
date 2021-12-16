@@ -1,6 +1,6 @@
 package modelo.objetoNulo;
 
-import persistencia.Genero;
+import modelo.Genero;
 
 public class GeneroNulo extends Genero{
 	

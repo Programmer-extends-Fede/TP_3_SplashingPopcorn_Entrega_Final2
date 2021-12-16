@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import modelo.Genero;
 import modelo.objetoNulo.GeneroNulo;
 import persistencia.commons.ProveedorDeConexion;
 

@@ -1,8 +1,9 @@
 package servicios;
 
 import java.util.ArrayList;
+
+import modelo.Genero;
 import persistencia.FabricaDAO;
-import persistencia.Genero;
 import persistencia.GeneroDAO;
 
 public class ServicioGenero {

@@ -10,9 +10,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Genero;
 import modelo.Pelicula;
 import modelo.Promocion;
-import persistencia.Genero;
 import servicios.ServicioGenero;
 import servicios.ServicioPelicula;
 import servicios.ServicioPromocion;
@@ -42,7 +42,7 @@ public class ListarPromocionesServlet extends HttpServlet implements Servlet {
 		request.setAttribute("generos", generos);
 		request.setAttribute("promociones", promociones);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/TP_3_SplashingPopcorn_Entrega_Final2/vistas/promociones.jsp");
 
 		dispatcher.forward(request, response);
 	}

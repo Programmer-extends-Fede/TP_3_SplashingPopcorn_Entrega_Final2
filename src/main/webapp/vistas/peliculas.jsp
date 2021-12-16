@@ -13,20 +13,20 @@
 <jsp:include page="../parciales/librerias.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/index.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/botones.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/botones.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final/css/estiloPeliculas.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/estiloPeliculas.css">
 
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/filtrarGeneros.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.pajinate.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.resize.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize.js"></script>
 
 </head>
 
@@ -94,9 +94,9 @@
 						<c:forEach items="${peliculas}" var="pelicula">
 							<div
 								class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
-								data-type="${pelicula.genero}">
+								>
 								<div
-									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
+									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0" data-type="${pelicula.genero}"
 									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%,  url('../${pelicula.urlFondo}');">
 									<!-- IMAGEN CARD -->
 
@@ -225,18 +225,19 @@
 								</select>
 							</div>
 							<div class="form-floating mb-3">
-								<input type="image" class="form-control rounded-4" id="urlFondo"
-									name="urlFondo" required value="${pelicula.urlFondo}">
-								<label for="urlFondo">Introduzca imagen</label>
-								<div class="invalid-feedback">Introduzca la imagen por
+								<label for="urlPortada">Foto de fondo</label>
+								<input type="file" class="form-control"
+									id="urlPortada" name="urlPortada" required
+									value="${pelicula.urlPortada}"> 
+								<div class="invalid-feedback">Introduzca una imagen por
 									favor</div>
 							</div>
 							<div class="form-floating mb-3">
-								<input type="image" class="form-control rounded-4"
+								<label for="urlPortada">Foto de portada</label>
+								<input type="file" class="form-control"
 									id="urlPortada" name="urlPortada" required
-									value="${pelicula.urlPortada}"> <label for="urlPortada">Nombre
-									de película</label>
-								<div class="invalid-feedback">Introduzca la imagen por
+									value="${pelicula.urlPortada}"> 
+								<div class="invalid-feedback">Introduzca una imagen por
 									favor</div>
 							</div>
 							<label for="descripcion">Descripción de película</label>
@@ -247,10 +248,10 @@
 								<div class="invalid-feedback">Introduzca la descripción
 									por favor</div>
 							</div>
-							<label for="descripcion">Descripción de película</label>
+							<label for=anioLanzamiento>Año de estreno</label>
 							<div class="form-floating mb-3">
 								<input type="number" class="form-control rounded-4"
-									id="anioLanzamiento" name="descripcion" required
+									id="anioLanzamiento" name="anioLanzamiento" required
 									value="${pelicula.anioLanzamiento}">
 								<div class="invalid-feedback">Introduzca el año por favor</div>
 							</div>

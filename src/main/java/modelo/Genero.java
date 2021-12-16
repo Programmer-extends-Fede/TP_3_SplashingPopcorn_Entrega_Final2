@@ -1,4 +1,4 @@
-package persistencia;
+package modelo;
 
 public class Genero {
 
