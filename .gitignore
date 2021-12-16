@@ -1,0 +1,5 @@
+bin
+.settings
+/target/
+src/main/resources/env.properties
+src/main/webapp/imagenes

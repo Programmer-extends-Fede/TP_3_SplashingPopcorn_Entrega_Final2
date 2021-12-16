@@ -1,0 +1,392 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body{
+	background-color: #0b090a;
+	width:100%;
+	margin: 0px;
+	padding: 0px;
+	
+}
+
+#barraTitulo{
+	background-color: #0b090a;
+	margin: auto;
+}
+
+#titulo{
+	color:#f5f3f4;
+	width: 300px;
+	padding-top: 50px;
+	text-align: left;
+	background-color: black;
+	height: 150px;
+	padding-left: 80px;
+}
+
+#menuAdmin{
+	margin-top: 80px;
+	display: flex;
+	flex-direction: column;
+	margin-right: 80px;
+}
+
+#botonEliminar{
+	margin-top: 20px;;
+}
+
+#botonEliminar:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+}
+
+
+#botonCrear:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+}
+
+
+/*main*/
+.display-flex{
+	display: flex;	
+}
+main{
+	width:100%;
+	 
+}
+
+
+#fondoPrincipal {
+	background-color: #0b090a;
+	padding-bottom: 40px;
+	padding-left: 50px;
+	padding-top: 60px;
+	
+}
+#fondoPrincipal >h5{
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	padding-left:50px;
+	color:#f5f3f4;
+	background-color: #0b090a;
+}
+#contenidoPrincipal{
+	display: flex;
+	flex-wrap: wrap;	
+}
+
+.lista-generos{
+	
+	display: flex;
+	flex-direction: column;
+	width: 12%;
+	
+}
+.lista-generos .genero-item{
+	display: block;
+	width: 90%;
+	border-radius: 5px;
+	padding: 5px 0;
+	margin-bottom: 20px;
+	background: #a4161a;
+
+	text-align: center;
+	text-decoration: none;
+	color:#f5f3f4;
+	font-size: 18px;
+}
+.lista-generos .genero-item:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+	background-color:#e5383b;
+	box-shadow: 2px 2px 10px #666;
+}
+
+.lista-generos .item-activado{
+	background: #f5f3f4;
+	color: #0b090a;
+}
+
+
+#cardsPeliculas{
+	
+	width: 82%;
+	display: flex;
+	flex-wrap: wrap;
+		
+}
+
+.row .card {
+	margin-top: 0px;
+	width: 70%;
+	margin-left: 15%;
+	margin-bottom: 50px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: flex-start;
+	
+
+	transition: all .4s;
+	
+}
+.card:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+}
+.row .card .card-body>h5{
+	font-size: 18px;
+	color: #0b090a;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.card-body>p{
+	font-size: 14px;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#botonEditar{
+	margin-bottom: 5px;
+	margin-top: 10px;
+	margin-left: 15px;
+	
+}
+#botonEditar:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+	box-shadow: 2px 2px 10px #666;
+}
+#botonDetalles {
+	background-color: #a4161a;
+	border: none;
+	width:auto;
+	margin-bottom: 5px;
+	margin-top: 10px;
+	text-align: center;
+	margin-left: 30px;
+}
+
+#botonDetalles:hover{
+	transform: scale(1.05);
+	transition: 0.4s;
+	background-color:#e5383b;
+	box-shadow: 2px 2px 10px #666;
+	
+}
+#paginador{
+	margin-left: 250px;
+	
+}
+.page_navigation a{
+	background-color: #f5f3f4;
+	border-radius: 2px;
+	
+	font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: #0b090a;
+	margin-right: 10px;
+}
+.page_navigation a:hover{
+	background-color: #a4161a;
+	color:#f5f3f4;
+}
+
+
+@media screen and (max-width: 700px){
+	body{
+		width:135%;
+	}
+	#fondoPrincipal{
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	#menuAdmin{
+		width: 100%;
+		flex-direction: row;
+		justify-content: flex-end;
+		
+	}
+	#menuAdmin #botonCrear{
+		align-self: flex-start;
+		width: 18%;
+		font-size: 12px;
+		margin-right: 20px;
+		margin-top: 10px;
+		
+	}
+	#menuAdmin #botonEliminar{
+		align-self: flex-start;
+		width: 15%;
+		font-size: 12px;
+		margin-top: 10px;
+	}
+	.lista-generos{
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-right: 10px;
+		
+		
+	}
+	.lista-generos .genero-item{
+		align-self: flex-start;
+		width: 10%;
+		font-size: 12px;
+		margin-left: 5px;
+		
+	}
+	#cardsPeliculas{
+	
+	width: 100%;
+	}
+	
+	#paginador{
+		margin-left: 50px;
+	}
+	.page_navigation a{
+		font-size: 15px;
+	}
+}
+
+
+/* footer 
+.animacion li {
+	list-style: none;
+}
+
+.animacion li a {
+	width: 50px;
+	height: 50px;
+	background-color: #fff;
+	text-align: center;
+	line-height: 45px;
+	font-size: 25px;
+	display: block;
+	border-radius: 50%;
+	position: relative;
+	overflow: hidden;
+	border: 2px solid #fff;
+	z-index: 1;
+}
+
+.animacion li a .icon {
+	position: relative;
+	color: #262626;
+	transition: .5s;
+	z-index: 3;
+}
+
+.animacion li a:hover .icon {
+	color: rgb(255, 255, 255);
+	transform: rotateY(360deg);
+}
+
+.facebook:hover .icon {
+	background-color: #3b5999;
+}
+
+.instagram:hover .icon {
+	background: linear-gradient(135deg, blue, red);
+}
+
+.twitter:hover .icon {
+	background-color: #55acee;
+}
+
+.animacion li a:before {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 150%;
+	height: 150%;
+	background: #f00;
+	transition: .5s;
+	z-index: 2;
+}
+
+.animacion li a:hover:before {
+	top: 0;
+}
+
+.animacion li:nth-child(2) a:before {
+	background: #3b5999;
+}
+
+.animacion li:nth-child(3) a:before {
+	background: #55acee;
+}
+
+.animacion li:nth-child(4) a:before {
+	background: linear-gradient(135deg, blue, red);
+}
+
+@media ( min-width : 0px) and (max-width: 767.99px) {
+	#barra {
+		background-image: repeating-linear-gradient(135deg, #161A1D, #161A1D 180px, rgba(190, 21,
+			21, .8) 182px, rgba(140, 21, 21, 1) 1300px), url(../imagenes/terror.jpg)
+			!important;
+	}
+	#barra:hover {
+		background-image: linear-gradient(135deg, rgb(205, 26, 26) 180px,
+			rgba(44, 44, 44, 0.9), rgba(140, 21, 21, 0.8) 181px,
+			rgba(205, 26, 26, 1)), url(../imagenes/terror.jpg) !important;
+	}
+}
+
+.fondo-footer{
+	background-image: url(../imagenes/prod.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center 50px;
+}
+
+.texto-footer{
+	color:  ivory;
+	
+}
+
+footer a svg{
+	color: ivory;	
+}
+		
+		@media (min-width: 0px) and (max-width: 767.99px){
+	html{
+		font-size: 0.75rem;
+	}
+	
+	#barra{
+		background-image: repeating-linear-gradient(135deg, #161A1D, #161A1D 180px, rgba(190, 21, 21, .8) 182px, rgba(140, 21, 21, 1) 1300px), url(terror.jpg)!important;
+	}
+	
+	#barra:hover{
+		background-image: linear-gradient(135deg, rgb(205, 26, 26) 180px, rgba(44, 44, 44, 0.9), rgba(140, 21, 21, 0.8) 181px, rgba(205, 26, 26, 1)), url(terror.jpg)!important;
+	}
+	
+	.nav-padding{
+		padding-top: 15.5px;
+		padding-bottom: 15.5px;
+		padding-left: 5px;
+	}
+	
+	.boton-mt{
+		margin-top: 15.5px;
+	}
+
+
+.fondo-opcional{
+	background-color: rgb(219,26,26);
+	background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(131, 21, 21, 0.5) 25px, rgba(131, 21, 21, 0.5) 40px);
+}
+}*/
