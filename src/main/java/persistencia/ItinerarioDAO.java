@@ -1,12 +1,8 @@
 package persistencia;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -96,8 +92,9 @@ public class ItinerarioDAO {
 	}
 
 	private void insertarCompras(Itinerario itinerario, Connection conexion) throws Exception {
-		String sqlPromoComprada = "INSERT INTO compras_de_itinerarios (fk_itinerario, fk_promocion, costo, fecha_de_compra) VALUES (?, ?, ?, ?)";
-		String sqlPelicComprada = "INSERT INTO compras_de_itinerarios (fk_itinerario, fk_atraccion, costo, fecha_de_compra) VALUES (?, ?, ?, ?)";
+		
+		String sqlPromoComprada = "INSERT INTO compras_de_itinerarios (fk_itinerario, fk_promocion, precio, duracion_min) VALUES (?, ?, ?, ?)";
+		String sqlPelicComprada = "INSERT INTO compras_de_itinerarios (fk_itinerario, fk_pelicula, precio, duracion_min) VALUES (?, ?, ?, ?)";
 
 		PreparedStatement declarPromoComprada = conexion.prepareStatement(sqlPromoComprada);
 		PreparedStatement declarPelicComprada = conexion.prepareStatement(sqlPelicComprada);
@@ -108,14 +105,13 @@ public class ItinerarioDAO {
 			declarPromoComprada.setInt(1, itinerario.getFkUsuario());
 			declarPromoComprada.setInt(2, ultimaCompra.getId());
 			declarPromoComprada.setDouble(3, ultimaCompra.getPrecio());
-			declarPromoComprada.setDate(4, Date.valueOf(LocalDate.now()));
+			declarPromoComprada.setInt(4, ultimaCompra.getDuracion());
 			declarPromoComprada.executeUpdate();
 		} else {
 			declarPelicComprada.setInt(1, itinerario.getFkUsuario());
 			declarPelicComprada.setInt(2, ultimaCompra.getId());
 			declarPelicComprada.setDouble(3, ultimaCompra.getPrecio());
-			declarPelicComprada.setTime(4, Time.valueOf(LocalTime.now()));
-			declarPelicComprada.setString(4, Date.valueOf(LocalDate.now()).toString());
+			declarPelicComprada.setInt(4, ultimaCompra.getDuracion());
 			declarPelicComprada.executeUpdate();
 		}
 	}
