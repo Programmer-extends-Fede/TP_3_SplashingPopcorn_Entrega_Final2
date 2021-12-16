@@ -22,7 +22,7 @@ public class ServicioGenero {
 	public Genero buscarPor(String nombre) {
 		return generoDAO.buscarPor(nombre);
 	}
-	public Genero crear(String nombre) {//no hice la validación del genero
+	public Genero crear(String nombre) {
 		Genero genero = new Genero(nombre);
 		generoDAO.insertar(genero);
 		

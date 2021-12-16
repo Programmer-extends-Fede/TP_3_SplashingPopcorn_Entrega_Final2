@@ -43,7 +43,7 @@ public class ComprarPromocionServlet extends HttpServlet implements Servlet{
 			request.setAttribute("flash", "No ha podido realizarse la compra");
 		}
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("promociones.do");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/promociones");
 		dispatcher.forward(request, response);
 	}
 }

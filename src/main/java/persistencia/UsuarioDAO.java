@@ -47,7 +47,7 @@ public class UsuarioDAO {
 	}
 
 	public int actualizar(Usuario usuario) {
-		String sql = "UPDATE usuarios SET nombre = ?,usuario = ?, contrasena = ?, dinero_disp = ?, tiempo_disp = ?, preferencia = ?,url_perfil, administrador = ? WHERE id = ?";
+		String sql = "UPDATE usuarios SET nombre = ? ,usuario = ?, contrasena = ?, dinero_disp = ?, tiempo_disp = ?, preferencia = ?, url_perfil = ?, administrador = ? WHERE id = ?";
 		int filasModificadas = 0;
 
 		try {

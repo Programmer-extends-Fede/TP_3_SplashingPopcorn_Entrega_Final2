@@ -35,7 +35,7 @@ public class ServicioComprarPelicula {
 			pelicula.restarStock();
 
 			transaccion.actualizarEnBBDD(usuario, pelicula);
-			
+
 		}
 		return errores;
 	}

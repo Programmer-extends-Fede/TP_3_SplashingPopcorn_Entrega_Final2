@@ -51,9 +51,9 @@
 		<c:if test="${usuario.esAdmin()}">
 			<div id="menuAdmin"
 				class="nav nav-pills position-absolute top-0 end-0">
-				<a href="/TP_3_SplashingPopcorn_Entrega_Final2/crearPelicula.ad" type="button" class="btn btn-success" id="botonCrear">Crear
+				<a href="/TP_3_SplashingPopcorn_Entrega_Final2/crearPelicula.ad" type="button" class=" mb-2 btn btn-success" id="botonCrear">Crear
 					película</a>
-				<a href="/generos/crearGenero.ad" type="button" class="btn btn-success" id="botonCrear">Crear
+				<a href="/TP_3_SplashingPopcorn_Entrega_Final2/crearGenero.ad" type="button" class="btn btn-success" id="botonCrear">Crear
 					género</a>
 
 			</div>
@@ -74,7 +74,7 @@
 						</a>
 						<c:if test="${usuario.esAdmin()}">
 							<a
-								href="/TP_3_SplashingPopcorn_Entrega_Final2/genero/borrarGenero.ad?nombre=${genero.nombre}"
+								href="/TP_3_SplashingPopcorn_Entrega_Final2/borrarGenero.ad?nombre=${genero.nombre}"
 								class="btn btn-danger rounded" role="button"><i
 								class="bi bi-x-circle-fill"></i></a>
 						</c:if>

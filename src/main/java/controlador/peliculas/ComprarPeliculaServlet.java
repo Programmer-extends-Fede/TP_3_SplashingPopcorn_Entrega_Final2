@@ -44,7 +44,7 @@ public class ComprarPeliculaServlet extends HttpServlet implements Servlet {
 			request.setAttribute("flash", "No ha podido realizarse la compra");
 		}
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("peliculas.do");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/peliculas");
 		dispatcher.forward(request, response);
 	}
 

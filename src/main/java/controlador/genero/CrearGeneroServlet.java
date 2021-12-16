@@ -24,7 +24,7 @@ public class CrearGeneroServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
 		
-		Genero genero = servicioGenero.crear(nombre);
+		servicioGenero.crear(nombre);
 		
 		response.sendRedirect("peliculas.do");
 	}

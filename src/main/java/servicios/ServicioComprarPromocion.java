@@ -10,12 +10,13 @@ import persistencia.PromocionDAO;
 import persistencia.UsuarioDAO;
 
 public class ServicioComprarPromocion {
-	
+
 	PromocionDAO promocionDAO = FabricaDAO.getPromocionDAO();
 	UsuarioDAO usuarioDAO = FabricaDAO.getUsuarioDAO();
-	//ItinerarioDAO itinerarioDAO = FabricaDAO.getItinerarioDAO();
+	ItinerarioDAO itinerarioDAO = FabricaDAO.getItinerarioDAO();
+	// ItinerarioDAO itinerarioDAO = FabricaDAO.getItinerarioDAO();
 	ServicioTransaccion transaccion = new ServicioTransaccion();
-	
+
 	public HashMap<String, String> comprar(int idUsuario, int idPromocion) {
 		HashMap<String, String> errores = new HashMap<String, String>();
 
@@ -33,9 +34,12 @@ public class ServicioComprarPromocion {
 		if (errores.isEmpty()) {
 			usuario.comprar(promocion);
 			promocion.restarStock();
-
-			transaccion.actualizarEnBBDD(usuario, promocion);
 			
+			
+			
+			
+			transaccion.actualizarEnBBDD(usuario, promocion);
+
 		}
 		return errores;
 	}

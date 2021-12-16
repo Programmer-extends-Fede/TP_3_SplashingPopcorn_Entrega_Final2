@@ -6,7 +6,7 @@
 	margin-top: 62px;
 }
 
-h2, .header_info {
+#titulo, h3, .header_info {
 	color: rgb(255, 255, 255);
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
 		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -76,7 +76,3 @@ h2, .header_info {
 #boton-comprar:focus, #boton-editar:focus, #boton-eliminar:focus {
 	box-shadow: 0 0 20px #e5383b;
 }
-
-/* #ventanaModalComprar {
-	background-color: #69cd65;
-} */
