@@ -26,7 +26,7 @@
 <script type="text/javascript"
 	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js"></script>
 
 </head>
 
