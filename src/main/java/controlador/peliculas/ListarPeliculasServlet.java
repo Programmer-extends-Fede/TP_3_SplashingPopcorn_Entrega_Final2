@@ -16,7 +16,7 @@ import servicios.ServicioGenero;
 import servicios.ServicioPelicula;
 
 @WebServlet("/peliculas")
-public class ListarPeliculasServlet extends HttpServlet implements Servlet{
+public class ListarPeliculasServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 4945986439121821695L;
 	private ServicioPelicula servicioPelicula;
@@ -28,10 +28,10 @@ public class ListarPeliculasServlet extends HttpServlet implements Servlet{
 		this.servicioPelicula = new ServicioPelicula();
 		this.servicioGenero = new ServicioGenero();
 	}
-	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		ArrayList<Pelicula> peliculas = servicioPelicula.listar();
 		ArrayList<Genero> generos = servicioGenero.listar();
 		request.setAttribute("peliculas", peliculas);
@@ -40,7 +40,7 @@ public class ListarPeliculasServlet extends HttpServlet implements Servlet{
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/peliculas.jsp");
 
 		dispatcher.forward(request, response);
-		
+
 	}
 
 }

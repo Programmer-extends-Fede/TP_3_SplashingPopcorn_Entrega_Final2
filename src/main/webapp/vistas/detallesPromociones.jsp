@@ -30,11 +30,12 @@
 		<div class="container" id="detalles">
 			<div class="row row-cols-md-2 row-cols-sm1 flex-colum">
 				<!-- LADO IZQUIERZO PANTALLA: IMAGEN PELÍCULA -->
-				<div>
+				<div class="d-flex col-sm-12 col-md-10 col-xl-9">
 					<section id="cardsPeliculas" class="row">
+					<div class="row contenido">
 						<!-- CARDS -->
 						<c:forEach items="${peliculas}" var="pelicula">
-							<div class="row contenido">
+					
 								<div class="col-6 col-md-4 col-lg-4 display-flex">
 									<div class="card" data-type="${pelicula.genero}">
 										<div class="card-body">
@@ -70,15 +71,16 @@
 										</div>
 									</div>
 								</div>
-							</div>
+					
 
 						</c:forEach>
+						</div>
 					</section>
 				</div>
 
 				<!-- LADO DERECHO: PRECIO/BOTONES -->
 				<div class="d-flex col-sm-12 col-md-2 col-xl-3" id="botones">
-					<div class="row">
+					<div class="row row-cols-1">
 						<!-- PRECIO PELÍCULA -->
 						<div class="col" id="precio-bloque">
 							<div class="align-self-center" id="precio">

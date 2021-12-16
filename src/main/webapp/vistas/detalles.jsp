@@ -103,10 +103,12 @@
 							<c:when test="${usuario!=null && !usuario.esAdmin()}">
 								<div class="col">
 									<div class="align-self-center" id="comprar">
-										<a class="btn btn-lg"
-											href="controlador/peliculas/comprarPelicula.do?id=${pelicula.id}&usuario=${usuario.id}"
-											role="button" data-bs-toggle="modal"
-											data-bs-target="#modalComprar" id="boton-comprar"><strong>Comprar</strong></a>
+										
+										<!-- data-bs-toggle="modal"
+											data-bs-target="#modalComprar" -->
+											<a class="btn btn-lg"
+											href="/TP_3_SplashingPopcorn_Entrega_Final2/comprarPelicula.do?id=${pelicula.id}&usuario=${usuario.id}"
+											role="button"  id="boton-comprar"><strong>Comprar</strong></a>
 									</div>
 								</div>
 							</c:when>
@@ -127,13 +129,13 @@
 				</div>
 			</div>
 			<!-- MODAL COMPRAR -->
-			<div class="modal fade" id="modalComprar" tabindex="-1"
+			<%-- <div class="modal fade" id="modalComprar" tabindex="-1"
 				aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered">
 					<div class="modal-content rounded-5 shadow"
 						id="ventanaModalComprar">
 						<div class="modal-body">
-							<p>Su compra se ha registrado existosamente.</p>
+							<p><c:out value="${?????}"></c:out></p>						
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -142,7 +144,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 
 			<!-- MODAL EDITAR -->
 			<div class="modal fade" id="modalEditar" tabindex="-1"
