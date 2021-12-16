@@ -44,10 +44,11 @@ public class EditarPromocionServlet extends HttpServlet implements Servlet{
 		String urlPortada = request.getParameter("urlPortada");
 		
 		//falta pedirle al servicio pelicula que traiga esas pelis y meterlas en un array
-		//el tema es que no tengo de dónde buscar el id.
-		ArrayList<Pelicula> pelisEnPromo =new ArrayList<>();
+		//el tema es que no tengo de dï¿½nde buscar el id.
 		
-		Promocion promocion = servicioPromocion.editar(0, titulo, pelisEnPromo, descripcion, urlPortada);
+		/*ArrayList<Pelicula> pelisEnPromo =new ArrayList<>();
+		
+		Promocion promocion = servicioPromocion.editar(0, titulo, pelisEnPromo, descripcion, urlPortada);*/
 		
 	}
 
