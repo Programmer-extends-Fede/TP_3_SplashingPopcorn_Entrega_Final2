@@ -10,20 +10,20 @@
 <jsp:include page="../parciales/librerias.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css"
-	href="TP_3_SplashingPopcorn_Entrega_Final/css/index.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final/css/index.css">
 <link rel="stylesheet" type="text/css"
-	href="TP_3_SplashingPopcorn_Entrega_Final/css/botones.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final/css/botones.css">
 <link rel="stylesheet" type="text/css"
-	href="TP_3_SplashingPopcorn_Entrega_Final/css/estiloPeliculas.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final/css/estiloPeliculas.css">
 
 <script type="text/javascript"
-	src="TP_3_SplashingPopcorn_Entrega_Final/js/js.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final/js/filtrarGeneros.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
-	src="TP_3_SplashingPopcorn_Entrega_Final/js/jquery.pajinate.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.pajinate.js"></script>
 <script type="text/javascript"
-	src="TP_3_SplashingPopcorn_Entrega_Final/js/jquery.resize.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final/js/jquery.resize.js"></script>
 
 </head>
 
@@ -71,56 +71,84 @@
 							</a>
 						</c:forEach>
 					</div>
-					<section id="cardsPeliculas" class="row">
-						<div id="contenedor-paginador">
+					
+									<!-- CONTENEDOR DE CARDS -->
 
-							<!-- CARDS -->
-							<c:forEach items="${promociones}" var="promocion">
-								<div class="row contenido">
-									<div class="col-6 col-md-4 col-lg-4 display-flex">
-										<div class="card" data-type="${promocion.getGenero()}">
-											<div class="card-body">
-												<img src="${promocion.urlPortada}" class="d-block w-100"
-													alt="007">
-												<h5 class="card-title">
+				<div class="d-flex col-12 flex-column mt-0 mb-3"
+					id="contenedor-cards">
+
+					<!-- TABLA DE CARDS -->
+					<div class="row justify-content-around contenido m-0 mb-4">
+						<!-- CARD -->
+						<c:forEach items="${promociones}" var="promocion">
+							<div
+								class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
+								data-type="${promocion.getGenero()}">
+								<div
+									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
+									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%');">
+									<!-- IMAGEN CARD -->
+
+									<div class="fondo-portada mx-auto"
+										style="background-image: url('../${promocion.urlPortada}');">
+									</div>
+
+									<!-- DESCRIPCION CARD -->
+									<div class="col d-flex p-0">
+										<div class="row m-0 my-2 w-100" id="contenedorDescrip">
+											<div class="d-flex">
+												<p class="titulo-carta h3 mx-auto text-center text-white">
 													<c:out value="${promocion.titulo}"></c:out>
-												</h5>
-												<p class="card-text">
-													<c:out value="Duracion: ${promocion.getDuracion()}"></c:out>
+													<br>
+													<c:out value="Duración: ${promocion.getDuracion()} min"></c:out>
+													<br>
+													<c:out value="Precio: $ ${promocion.getPrecio()}"></c:out>
+													<br>
 												</p>
-												<p class="card-text">
-													<c:out value="Precio: ${promocion.getPrecio()}"></c:out>
-												</p>
-												<a href="detalle.jsp?id=${promocion.id}"
-													class="btn btn-primary" id="botonDetalles">Ver</a>
-
-												<c:if test="${usuario.esAdmin}">
-													<a
-														href="controlador/pelicula/editarPromocion?id=${promocion.id}"
-														data-bs-toggle="modal"
-														data-bs-target="#modalEditarPromocion"
-														class="btn btn-success" id="botonEditar">Editar</a>
-
-													<a
-														href="controlador/pelicula/borrarPromocion?id=${promocion.id}"
-														data-bs-toggle="modal" data-bs-target="#modalEliminar"
-														class="btn btn-success" id="botonEliminar">Eliminar</a>
-												</c:if>
-
 											</div>
+											<div class="d-flex mt-auto justify-content-center">
+												<a href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}}"
+												 class="botondes learn-more d-flex"> <span
+													class="circle" aria-hidden="true"> <span
+														class="icon arrow"></span>
+												</span> <span class="button-text mx-auto">Ver</span>
+												</a>
+											</div>
+
+											<c:if test="${usuario.esAdmin()}">
+												<div class="d-flex mt-auto justify-content-center">
+													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
+														class="botondes learn-more d-flex"> <span
+														class="circle" aria-hidden="true" id="botonAdmin">
+															<span class="icon arrow"></span>
+													</span> <span class="button-text mx-auto">Editar</span>
+													</a>
+												</div>
+												<div class="d-flex mt-auto justify-content-center">
+													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/borrarPromocion.ad"
+														class="botondes learn-more d-flex"> <span
+														class="circle" aria-hidden="true" id="botonAdmin">>
+															<span class="icon arrow"></span>
+													</span> <span class="button-text mx-auto">Eliminar</span>
+													</a>
+												</div>
+											</c:if>
+
 										</div>
 									</div>
 								</div>
-
-							</c:forEach>
-
-
-							<!-- PAGINADOR -->
-							<div id="paginador" class="row">
-								<div class="page_navigation"></div>
 							</div>
-						</div>
-					</section>
+						</c:forEach>
+					</div>
+					<!-- PAGINADOR -->
+					<div class="row text-center m-0 mt-auto p-4 border-top border-dark">
+						<div class="page_navigation"></div>
+					</div>
+				</div>
+					
+
+
+
 				</div>
 			</div>
 		</div>
@@ -141,7 +169,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="controlador/crearPromocion" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/crearPromocion.ad" method="post">
 
 							<label for="titulo">Titulo de promoción</label>
 							<div class="form-floating mb-3">
@@ -152,7 +180,7 @@
 							</div>
 
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija las películas:</label> <input
+								<label for="peliculasEnPromos">Elija una película:</label> <input
 									list="listaPeliculas" id="peliculasEnPromos"
 									name="peliculasEnPromos" />
 
@@ -164,7 +192,7 @@
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija las películas:</label> <input
+								<label for="peliculasEnPromos">Elija una película:</label> <input
 									list="listaPeliculas" id="peliculasEnPromos"
 									name="peliculasEnPromos" />
 
@@ -176,7 +204,7 @@
 
 							</div>
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija las películas:</label> <input
+								<label for="peliculasEnPromos">Elija una película:</label> <input
 									list="listaPeliculas" id="peliculasEnPromos"
 									name="peliculasEnPromos" />
 
@@ -215,31 +243,6 @@
 			</div>
 		</div>
 
-		<!-- MODAL ELIMINAR -->
-		<div class="modal fade" id="modalEliminar" data-bs-backdrop="static"
-			data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content rounded-5 shadow">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Eliminar
-							promoción</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<p>¿Está seguro de eliminar esta promoción?</p>
-					</div>
-					<div class="modal-footer">
-						<a class="btn btn-primary"
-							href="controlador/promociones/borrarPromocion.do?id=${promocion.id}"
-							role="button" id="aceptar-eliminar">Aceptar</a>
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-					</div>
-				</div>
-			</div>
-		</div>
 
 		<!-- MODAL EDITAR PROMOCIÓN -->
 		<div class="modal fade" id="modalEditarPromocion" tabindex="-1"
@@ -258,7 +261,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="controlador/promociones/editarPromocion.do"
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
 							method="post">
 							<label for="titulo">Titulo de promoción</label>
 							<div class="form-floating mb-3">
@@ -269,7 +272,31 @@
 							</div>
 
 							<div class="form-floating mt-5 mb-3">
-								<label for="peliculasEnPromos">Elija las películas:</label> <input
+								<label for="peliculasEnPromos">Elija una película</label> <input
+									list="listaPeliculas" id="peliculasEnPromos"
+									name="peliculasEnPromos" />
+
+								<datalist id="listaPeliculas">
+									<c:forEach items="${peliculas}" var="peliculas">
+										<option value="${peliculas.titulo}">
+									</c:forEach>
+								</datalist>
+
+							</div>
+							<div class="form-floating mt-5 mb-3">
+								<label for="peliculasEnPromos">Elija una película</label> <input
+									list="listaPeliculas" id="peliculasEnPromos"
+									name="peliculasEnPromos" />
+
+								<datalist id="listaPeliculas">
+									<c:forEach items="${peliculas}" var="peliculas">
+										<option value="${peliculas.titulo}">
+									</c:forEach>
+								</datalist>
+
+							</div>
+							<div class="form-floating mt-5 mb-3">
+								<label for="peliculasEnPromos">Elija una película</label> <input
 									list="listaPeliculas" id="peliculasEnPromos"
 									name="peliculasEnPromos" />
 

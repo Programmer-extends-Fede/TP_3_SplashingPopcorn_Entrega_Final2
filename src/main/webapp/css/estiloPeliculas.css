@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 body{
-	background-color: #0b090a;
+	background-color: black;
 	width:100%;
 	margin: 0px;
 	padding: 0px;
@@ -22,7 +22,7 @@ body{
 	padding-top: 50px;
 	text-align: left;
 	background-color: black;
-	height: 150px;
+	height: 100px;
 	padding-left: 80px;
 }
 
@@ -52,18 +52,21 @@ body{
 /*main*/
 .display-flex{
 	display: flex;	
+	
 }
 main{
 	width:100%;
 	 
 }
 
-
 #fondoPrincipal {
-	background-color: #0b090a;
+	background-color: grey;
 	padding-bottom: 40px;
-	padding-left: 50px;
-	padding-top: 60px;
+	padding-left: 30px;
+	padding-top: 0px;
+	padding-right: 10px;
+	margin-top: 0px;
+	margin-right: 0px;
 	
 }
 #fondoPrincipal >h5{
@@ -84,20 +87,21 @@ main{
 	display: flex;
 	flex-direction: column;
 	width: 12%;
-	
+	margin-right: 10px;
+	position: fixed;
 }
 .lista-generos .genero-item{
 	display: block;
 	width: 90%;
 	border-radius: 5px;
 	padding: 5px 0;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	background: #a4161a;
 
 	text-align: center;
 	text-decoration: none;
 	color:#f5f3f4;
-	font-size: 18px;
+	font-size: 15px;
 }
 .lista-generos .genero-item:hover{
 	transform: scale(1.05);
@@ -111,94 +115,82 @@ main{
 	color: #0b090a;
 }
 
-
-#cardsPeliculas{
+#contenedor-cards{
+	width: 80%;
+	margin-left: 13%;
 	
-	width: 82%;
-	display: flex;
-	flex-wrap: wrap;
-		
 }
 
-.row .card {
-	margin-top: 0px;
-	width: 70%;
-	margin-left: 15%;
-	margin-bottom: 50px;
-	
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	align-self: flex-start;
-	
-
-	transition: all .4s;
-	
-}
-.card:hover{
-	transform: scale(1.05);
-	transition: 0.4s;
-}
-.row .card .card-body>h5{
-	font-size: 18px;
-	color: #0b090a;
-	padding-top: 5px;
-	text-align: center;
-}
-
-.card-body>p{
-	font-size: 14px;
-	margin-bottom: 5px;
-	text-align: center;
-}
-
-#botonEditar{
-	margin-bottom: 5px;
-	margin-top: 10px;
-	margin-left: 15px;
-	
-}
-#botonEditar:hover{
-	transform: scale(1.05);
-	transition: 0.4s;
-	box-shadow: 2px 2px 10px #666;
-}
-#botonDetalles {
-	background-color: #a4161a;
-	border: none;
-	width:auto;
-	margin-bottom: 5px;
-	margin-top: 10px;
-	text-align: center;
-	margin-left: 30px;
-}
-
-#botonDetalles:hover{
-	transform: scale(1.05);
-	transition: 0.4s;
-	background-color:#e5383b;
-	box-shadow: 2px 2px 10px #666;
-	
-}
-#paginador{
-	margin-left: 250px;
-	
-}
 .page_navigation a{
-	background-color: #f5f3f4;
-	border-radius: 2px;
-	
-	font-size: 20px;
-	text-decoration: none;
-	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
-	color: #0b090a;
-	margin-right: 10px;
+	padding: 14px 18px;
+	margin:2px;
+	color:lightgoldenrodyellow;
+	text-decoration:none;
+	font-family: Tahoma;
+	font-size: 18px;
+	background-color:rgb(59, 59, 59);
+	border-radius: 8px;
+	transition: 0.2s;
 }
+
 .page_navigation a:hover{
-	background-color: #a4161a;
-	color:#f5f3f4;
+	color: rgba(250, 250, 210,0.5);
+}
+
+.active_page{
+	border: solid 1px;
+	border-color: var(--col-primario);
+	background-color:white !important;
+	color:var(--col-primario) !important;
+}	
+
+
+.d-flex1{
+	margin-right: 20px;
+}
+
+.carta{
+	border-radius: 16px;
+	box-shadow: 4px 8px 12px rgba(0,0,0, 0.5);
+	max-width: 400px;
+	min-width: 200px;
+}
+
+.fondo-backdrop{
+	background-size: cover;
+	background-position: right center;
+
+}
+
+.fondo-portada{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center	;
+	width: calc(100% - 40px);
+	height: 400px;
+	filter: brightness(70%);
+	transition: 0.2s;
+}
+
+.fondo-portada:hover{
+	filter: brightness(100%);
+}
+
+.descripcion{
+	color: white;
+}
+.titulo-carta{
+	font-size: 15px;
+}
+
+#botonAdmin{
+	background-color: #BA181B;
+}
+
+span{
+	color: lightyellow;
+	font-size: 70%;
+	opacity: 0.6;
 }
 
 
@@ -206,6 +198,7 @@ main{
 	body{
 		width:135%;
 	}
+
 	#fondoPrincipal{
 		padding-left: 5%;
 		padding-right: 5%;
@@ -235,158 +228,70 @@ main{
 		flex-direction: row;
 		justify-content: space-between;
 		margin-right: 10px;
-		
+		position: relative;
 		
 	}
 	.lista-generos .genero-item{
 		align-self: flex-start;
 		width: 10%;
-		font-size: 12px;
+		font-size: 8px;
 		margin-left: 5px;
 		
 	}
-	#cardsPeliculas{
 	
-	width: 100%;
+}
+@media (min-width: 0px) and (max-width: 575.99px){
+
+	#contenidoPrincipal{
+		width: 100%;
+		margin-left: 0px;
+	
 	}
 	
-	#paginador{
-		margin-left: 50px;
+	.fondo-portada{
+		height: 250px;
 	}
-	.page_navigation a{
-		font-size: 15px;
+	
+	#titulo{
+		font-size: 25px!important;
+		margin-top: 80px !important;
 	}
-}
-
-
-/* footer 
-.animacion li {
-	list-style: none;
-}
-
-.animacion li a {
-	width: 50px;
-	height: 50px;
-	background-color: #fff;
-	text-align: center;
-	line-height: 45px;
-	font-size: 25px;
-	display: block;
-	border-radius: 50%;
-	position: relative;
-	overflow: hidden;
-	border: 2px solid #fff;
-	z-index: 1;
-}
-
-.animacion li a .icon {
-	position: relative;
-	color: #262626;
-	transition: .5s;
-	z-index: 3;
-}
-
-.animacion li a:hover .icon {
-	color: rgb(255, 255, 255);
-	transform: rotateY(360deg);
-}
-
-.facebook:hover .icon {
-	background-color: #3b5999;
-}
-
-.instagram:hover .icon {
-	background: linear-gradient(135deg, blue, red);
-}
-
-.twitter:hover .icon {
-	background-color: #55acee;
-}
-
-.animacion li a:before {
-	content: "";
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 150%;
-	height: 150%;
-	background: #f00;
-	transition: .5s;
-	z-index: 2;
-}
-
-.animacion li a:hover:before {
-	top: 0;
-}
-
-.animacion li:nth-child(2) a:before {
-	background: #3b5999;
-}
-
-.animacion li:nth-child(3) a:before {
-	background: #55acee;
-}
-
-.animacion li:nth-child(4) a:before {
-	background: linear-gradient(135deg, blue, red);
-}
-
-@media ( min-width : 0px) and (max-width: 767.99px) {
-	#barra {
-		background-image: repeating-linear-gradient(135deg, #161A1D, #161A1D 180px, rgba(190, 21,
-			21, .8) 182px, rgba(140, 21, 21, 1) 1300px), url(../imagenes/terror.jpg)
-			!important;
+	
+	.carta{
+		min-width: 150px;
 	}
-	#barra:hover {
-		background-image: linear-gradient(135deg, rgb(205, 26, 26) 180px,
-			rgba(44, 44, 44, 0.9), rgba(140, 21, 21, 0.8) 181px,
-			rgba(205, 26, 26, 1)), url(../imagenes/terror.jpg) !important;
-	}
-}
-
-.fondo-footer{
-	background-image: url(../imagenes/prod.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: center 50px;
-}
-
-.texto-footer{
-	color:  ivory;
 	
 }
 
-footer a svg{
-	color: ivory;	
+@media (max-width: 576px){
+	
+	#titulo{
+		margin-bottom: 25px !important;
+		font-size: 40px	;	
+	}
+	
 }
+
+@media (min-width: 576px) and (max-width: 991.99px){
+	
+	
+	
+	.titulo-carta{
+		font-size: 16px;
+	}
+	#titulo{
+		font-size: 35px!important;
+		margin-top: 100px !important;
+	}
 		
-		@media (min-width: 0px) and (max-width: 767.99px){
-	html{
-		font-size: 0.75rem;
+	.fondo-portada{
+		height: 350px;
 	}
-	
-	#barra{
-		background-image: repeating-linear-gradient(135deg, #161A1D, #161A1D 180px, rgba(190, 21, 21, .8) 182px, rgba(140, 21, 21, 1) 1300px), url(terror.jpg)!important;
-	}
-	
-	#barra:hover{
-		background-image: linear-gradient(135deg, rgb(205, 26, 26) 180px, rgba(44, 44, 44, 0.9), rgba(140, 21, 21, 0.8) 181px, rgba(205, 26, 26, 1)), url(terror.jpg)!important;
-	}
-	
-	.nav-padding{
-		padding-top: 15.5px;
-		padding-bottom: 15.5px;
-		padding-left: 5px;
-	}
-	
-	.boton-mt{
-		margin-top: 15.5px;
-	}
-
-
-.fondo-opcional{
-	background-color: rgb(219,26,26);
-	background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(131, 21, 21, 0.5) 25px, rgba(131, 21, 21, 0.5) 40px);
 }
-}*/
+
+@media (min-width: 991.99px) and (max-width: 1199.99px){
+	
+	.titulo-carta{
+		font-size: 18px;
+	}
+}

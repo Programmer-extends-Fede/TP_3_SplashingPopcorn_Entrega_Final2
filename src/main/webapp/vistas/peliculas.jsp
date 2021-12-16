@@ -20,7 +20,7 @@
 	href="/TP_3_SplashingPopcorn_Entrega_Final/css/estiloPeliculas.css">
 
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final/js/js.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final/js/filtrarGeneros.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
@@ -43,106 +43,122 @@
 
 		<!-- BARRA ADMIN -->
 
-		<div id="barraTitulo">
-			<div id="titulo">
-				<h1>Películas</h1>
-			</div>
+		<div id="barraTitulo"></div>
+		<div id="titulo">
+			<h1>Películas</h1>
+		</div>
 
-			<c:if test="${usuario.esAdmin()}">
-				<div id="menuAdmin"
-					class="nav nav-pills position-absolute top-0 end-0">
-					<button type="button" class="btn btn-success"
-						data-bs-toggle="modal" data-bs-target="#modalCrearPelicula"
-						id="botonCrear">Crear película</button>
-					<button type="button" class="btn btn-success"
-						data-bs-toggle="modal" data-bs-target="#modalCrearGenero"
-						id="botonCrear">Crear género</button>
+		<c:if test="${usuario.esAdmin()}">
+			<div id="menuAdmin"
+				class="nav nav-pills position-absolute top-0 end-0">
+				<a href="/peliculas/crearPelicula.ad" type="button" class="btn btn-success" id="botonCrear">Crear
+					película</a>
+				<a href="/generos/crearGenero.ad" type="button" class="btn btn-success" id="botonCrear">Crear
+					género</a>
+
+			</div>
+		</c:if>
+
+		<div id="fondoPrincipal" class="container-fluid">
+
+			<div id="contenidoPrincipal">
+
+				<!-- LISTADO DE GÉNEROS -->
+
+				<div class="lista-generos mt-5">
+					<a class="genero-item" data-type="todos" href="#"><c:out
+							value="Todas"></c:out></a>
+					<c:forEach items="${generos}" var="genero">
+						<a class="genero-item" data-type="${genero.nombre}" href="#">
+							<c:out value="${genero.nombre}"></c:out>
+						</a>
+						<c:if test="${usuario.esAdmin()}">
+							<a
+								href="/TP_3_SplashingPopcorn_Entrega_Final2/genero/borrarGenero.ad?nombre=${genero.nombre}"
+								class="btn btn-danger rounded" role="button"><i
+								class="bi bi-x-circle-fill"></i></a>
+						</c:if>
+
+					</c:forEach>
 
 				</div>
-			</c:if>
 
-			<div id="fondoPrincipal" class="container-fluid">
+				<!-- CONTENEDOR DE CARDS -->
 
-				<div id="contenidoPrincipal">
+				<div class="d-flex col-12 flex-column mt-0 mb-3"
+					id="contenedor-cards">
 
-					<!-- LISTADO DE GÉNEROS -->
+					<!-- TABLA DE CARDS -->
+					<div class="row justify-content-around contenido m-0 mb-4">
+						<!-- CARD -->
+						<c:forEach items="${peliculas}" var="pelicula">
+							<div
+								class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
+								data-type="${pelicula.genero}">
+								<div
+									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
+									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%,  url('../${pelicula.urlFondo}');">
+									<!-- IMAGEN CARD -->
 
+									<div class="fondo-portada mx-auto"
+										style="background-image: url('../${pelicula.urlPortada}');">
+									</div>
 
-					<div class="lista-generos">
-						<a class="genero-item" data-type="todos" href="#"><c:out
-								value="Todas"></c:out></a>
-						<c:forEach items="${generos}" var="genero">
-							<a class="genero-item" data-type="${genero.nombre}" href="#">
-								<c:out value="${genero.nombre}"></c:out>
-							</a>
-							<c:if test="${user.admin}">
-								<button type="button" class="btn btn-danger rounded"
-									data-bs-toggle="modal" data-bs-target="#modalEliminarGenero"
-									id="botonCrear" value="${genero.nombre}">
-									<i class="bi bi-x-circle-fill"></i>
-								</button>
-							</c:if>
-
-						</c:forEach>
-
-					</div>
-
-
-
-					<section id="cardsPeliculas" class="row">
-						<div id="contenedor-paginador">
-
-							<!-- CARDS -->
-							<c:forEach items="${peliculas}" var="pelicula">
-								<div class="row contenido">
-									<div class="col-6 col-md-4 col-lg-4 display-flex">
-										<div class="card" data-type="${pelicula.genero}">
-											<div class="card-body">
-												<img src="${pelicula.urlPortada}" class="d-block w-100"
-													alt="">
-												<h5 class="card-title">
+									<!-- DESCRIPCION CARD -->
+									<div class="col d-flex p-0">
+										<div class="row m-0 my-2 w-100" id="contenedorDescrip">
+											<div class="d-flex">
+												<p class="titulo-carta h3 mx-auto text-center text-white">
 													<c:out value="${pelicula.titulo}"></c:out>
-												</h5>
-												<p class="card-text">
-													<c:out value="Duración: ${pelicula.duracion}"></c:out>
+													<br>
+													<c:out value="Duración: ${pelicula.duracion} min"></c:out>
+													<br>
+													<c:out value="Precio: $ ${pelicula.precio}"></c:out>
+													<br>
 												</p>
-												<p class="card-text">
-													<c:out value="Precio: ${pelicula.precio}"></c:out>
-												</p>
-												<a href="detalle.jsp?id=${pelicula.id}"
-													class="btn btn-primary" id="botonDetalles">Ver</a>
-
-												<c:if test="${usuario.esAdmin}">
-													<a
-														href="controlador/pelicula/editarPelicula?id=${pelicula.id}"
-														data-bs-toggle="modal"
-														data-bs-target="#modalEditarPelicula"
-														class="btn btn-success" id="botonEditar">Editar</a>
-
-													<a
-														href="controlador/pelicula/borrarPelicula?id=${pelicula.id}"
-														data-bs-toggle="modal" data-bs-target="#modalEliminar"
-														class="btn btn-success" id="botonEliminar">Eliminar</a>
-
-												</c:if>
-
 											</div>
+											<div class="d-flex mt-auto justify-content-center">
+												<a href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePelicula?id=${pelicula.id}" class="botondes learn-more d-flex"> <span
+													class="circle" aria-hidden="true"> <span
+														class="icon arrow"></span>
+												</span> <span class="button-text mx-auto">Ver</span>
+												</a>
+											</div>
+
+											<c:if test="${usuario.esAdmin()}">
+												<div class="d-flex mt-auto justify-content-center">
+													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/editarPelicula.ad"
+														class="botondes learn-more d-flex"> <span
+														class="circle" aria-hidden="true" id="botonAdmin">
+															<span class="icon arrow"></span>
+													</span> <span class="button-text mx-auto">Editar</span>
+													</a>
+												</div>
+												<div class="d-flex mt-auto justify-content-center">
+													<a href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/borrarPelicula.ad"
+														class="botondes learn-more d-flex"> <span
+														class="circle" aria-hidden="true" id="botonAdmin">>
+															<span class="icon arrow"></span>
+													</span> <span class="button-text mx-auto">Eliminar</span>
+													</a>
+												</div>
+											</c:if>
+
 										</div>
 									</div>
 								</div>
-
-							</c:forEach>
-
-
-							<!-- PAGINADOR -->
-							<div id="paginador" class="row">
-								<div class="page_navigation"></div>
 							</div>
-						</div>
-					</section>
+						</c:forEach>
+					</div>
+					<!-- PAGINADOR -->
+					<div class="row text-center m-0 mt-auto p-4 border-top border-dark">
+						<div class="page_navigation"></div>
+					</div>
 				</div>
 			</div>
 		</div>
+
+
 		<!-- MODAL CREAR PELÍCULA -->
 		<div class="modal fade" id="modalCrearPelicula" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -160,7 +176,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/crearPelicula" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/crearPelicula.ad" method="post">
 
 							<label for="titulo">Titulo de película</label>
 							<div class="form-floating mb-3">
@@ -200,7 +216,7 @@
 								</div>
 							</div>
 
-							<label for="genero">Elija un género</label>
+						<label for="genero">Elija un género</label>
 							<div class="form-floating mb-3">
 								<select class="form-select" aria-label="Default select example">
 									<c:forEach items="${generos}" var="genero">
@@ -245,7 +261,6 @@
 								<div class="invalid-feedback">Introduzca el lema por favor</div>
 							</div>
 
-
 							<button type="submit"
 								class="w-100 mb-2 btn btn-lg rounded-4 btn-warning">Crear
 								película</button>
@@ -273,8 +288,9 @@
 							aria-label="Close"></button>
 					</div>
 
+
 					<div class="modal-body p-5 pt-0">
-						<form action="/crearGenero" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/genero/crearGenero.ad" method="post">
 
 							<label for="genero">Nuevo género</label>
 							<div class="form-floating mb-3">
@@ -287,64 +303,14 @@
 								class="w-100 mb-2 btn btn-lg rounded-4 btn-warning">Crear
 								género</button>
 
+
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- MODAL ELIMINAR GÉNERO -->
-		<div class="modal fade" id="modalEliminarGenero"
-			data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content rounded-5 shadow">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Eliminar
-							género</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<p>¿Está seguro de eliminar este género?</p>
-					</div>
-					<div class="modal-footer">
-						<a class="btn btn-primary"
-							href="controlador/peliculas/borrarGenero?nombre=${genero.nombre}"
-							role="button" id="aceptar-eliminar">Aceptar</a>
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-					</div>
-				</div>
-			</div>
-		</div>
 
-
-		<!-- MODAL ELIMINAR PELICULA-->
-		<!-- 	<div class="modal fade" id="modalEliminarPelicula"
-			data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-			aria-labelledby="staticBackdropLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content rounded-5 shadow">
-					<div class="modal-header">
-						<h5 class="modal-title" id="staticBackdropLabel">Eliminar
-							película</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-					<div class="modal-body">
-						<p>¿Está seguro de eliminar esta película?</p>
-					</div>
-					<div class="modal-footer">
-						<a class="btn btn-primary"
-							href="/peliculas/borrarPelicula?id=${pelicula.id}"
-							role="button" id="aceptar-eliminar">Aceptar</a>
-						<button type="button" class="btn btn-secondary"
-							data-bs-dismiss="modal">Cerrar</button>
-					</div>
-				</div>
-			</div>
-		</div> -->
 
 		<!-- MODAL EDITAR PELÍCULA -->
 		<div class="modal fade" id="modalEditarPelicula" tabindex="-1"
@@ -363,7 +329,7 @@
 					</div>
 
 					<div class="modal-body p-5 pt-0">
-						<form action="/editarPelicula" method="post">
+						<form action="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/editarPelicula.ad" method="post">
 							<label for="titulo">Titulo de película</label>
 							<div class="form-floating mb-3">
 								<input type="text" class="form-control rounded-4" id="titulo"
@@ -467,8 +433,6 @@
 				</div>
 			</div>
 		</div>
-
-
 	</main>
 
 	<footer class="m-1">
