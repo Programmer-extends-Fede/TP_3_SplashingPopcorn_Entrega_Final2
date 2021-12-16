@@ -49,15 +49,14 @@
 									<div class="title ott_true">
 										<h2 id="titulo">
 											<c:out value="${pelicula.titulo}"></c:out>
-											<span class="tag release_date">(<c:out
-													value="${pelicula.anioLanzamiento}"></c:out>)
-											</span>
+											<span class="tag release_date"><c:out
+													value="(${pelicula.anioLanzamiento})"></c:out> </span>
 										</h2>
 										<div class="datos">
 											<h3>
 												<span class="genero"><c:out
 														value="${pelicula.genero}"></c:out></span> <span class="duracion">
-													- <c:out value="${pelicula.duracion}"></c:out> minutos.
+													- <c:out value="${pelicula.duracion} minutos."></c:out>
 												</span>
 											</h3>
 										</div>
@@ -79,8 +78,7 @@
 						<div class="col" id="precio-bloque">
 							<div class="align-self-center" id="precio">
 								<h2>
-									&nbsp;$
-									<c:out value="${pelicula.precio}"></c:out>&nbsp;0&nbsp;
+									<c:out value="$ ${pelicula.precio}0"></c:out>
 								</h2>
 							</div>
 						</div>
@@ -90,25 +88,23 @@
 								<div class="d-flex col">
 									<div class="btn-group align-self-center" role="group"
 										id="acceso_compra">
-										<button type="button" class="btn btn-lg"
-											data-bs-toggle="modal" data-bs-target="#modalEditar"
-											id="boton-editar">
-											<strong>Editar</strong>
-										</button>
-										<button type="button" class="btn btn-lg"
-											data-bs-toggle="modal" data-bs-target="#modalEliminar"
-											id="boton-eliminar">
-											<strong>Eliminar</strong>
-										</button>
+										<a
+											href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/editarPelicula.ad"
+											role="button" class="btn btn-lg" data-bs-toggle="modal"
+											data-bs-target="#modalEditar" id="boton-editar"> <strong>Editar</strong>
+										</a> <a
+											href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/borrarPelicula.ad"
+											role="button" class="btn btn-lg" data-bs-toggle="modal"
+											data-bs-target="#modalEliminar" id="boton-eliminar"><strong>Eliminar</strong>
+										</a>
 									</div>
-
 								</div>
 							</c:when>
 							<c:when test="${usuario!=null && !usuario.esAdmin()}">
 								<div class="col">
 									<div class="align-self-center" id="comprar">
 										<a class="btn btn-lg"
-											href="controlador/peliculas/comprarPelicula.do?id=${pelicula.id}?usuario=${usuario.id}"
+											href="controlador/peliculas/comprarPelicula.do?id=${pelicula.id}&usuario=${usuario.id}"
 											role="button" data-bs-toggle="modal"
 											data-bs-target="#modalComprar" id="boton-comprar"><strong>Comprar</strong></a>
 									</div>

@@ -83,8 +83,7 @@
 						<div class="col" id="precio-bloque">
 							<div class="align-self-center" id="precio">
 								<h2>
-									&nbsp;$
-									<c:out value="${promocion.precio}"></c:out>&nbsp;0&nbsp;
+									<c:out value="$ ${promocion.precio}0"></c:out>
 								</h2>
 							</div>
 						</div>
