@@ -16,11 +16,11 @@
 				class="nav me-auto mt-md-0 mt-2 mb-2 mb-md-0 ms-md-2 d-inline-flex flex-md-row flex-column itemsbarra">
 
 
-				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final/inicio"
+				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final2/inicio"
 					class="nav-link px-2 link-light fs-5">Inicio</a></li>
-				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final/peliculas"
+				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas"
 					class="nav-link px-2 link-light opacity-50 fs-5">Películas</a></li>
-				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final/promociones"
+				<li><a href="/TP_3_SplashingPopcorn_Entrega_Final2/promociones"
 					class="nav-link px-2 link-light opacity-50 fs-5">Promociones</a></li>
 			</ul>
 		</div>
@@ -49,10 +49,10 @@
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
 						<li><a class="dropdown-item" href="#">Compras de usuario</a></li>
 						<li><a class="dropdown-item"
-							href="/TP_3_SplashingPopcorn_Entrega_Final/listarUsuarios.ad">Usuarios</a></li>
+							href="/TP_3_SplashingPopcorn_Entrega_Final2/listarUsuarios.ad">Usuarios</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item"
-							href="/TP_3_SplashingPopcorn_Entrega_Final/cerrarSesion">Cerrar
+							href="/TP_3_SplashingPopcorn_Entrega_Final2/cerrarSesion">Cerrar
 								sesión</a></li>
 					</ul>
 				</c:when>
@@ -60,11 +60,11 @@
 					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
 						<li><a class="dropdown-item" href="#">Mi perfil</a></li>
 						<li><a class="dropdown-item"
-							href="/TP_3_SplashingPopcorn_Entrega_Final/listarItinerario.do">Mis
+							href="/TP_3_SplashingPopcorn_Entrega_Final2/listarItinerario.do">Mis
 								compras</a></li>
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item"
-							href="/TP_3_SplashingPopcorn_Entrega_Final/cerrarSesion">Cerrar
+							href="/TP_3_SplashingPopcorn_Entrega_Final2/cerrarSesion">Cerrar
 								sesión</a></li>
 					</ul>
 				</c:otherwise>
