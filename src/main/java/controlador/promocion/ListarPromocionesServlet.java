@@ -42,7 +42,7 @@ public class ListarPromocionesServlet extends HttpServlet implements Servlet {
 		request.setAttribute("generos", generos);
 		request.setAttribute("promociones", promociones);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/TP_3_SplashingPopcorn_Entrega_Final2/vistas/promociones.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/promociones.jsp");
 
 		dispatcher.forward(request, response);
 	}

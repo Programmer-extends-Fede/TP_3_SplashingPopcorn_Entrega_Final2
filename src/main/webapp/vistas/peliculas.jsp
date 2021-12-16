@@ -97,11 +97,11 @@
 								>
 								<div
 									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0" data-type="${pelicula.genero}"
-									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%,  url('../${pelicula.urlFondo}');">
+									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%,  url('${pelicula.urlFondo}');">
 									<!-- IMAGEN CARD -->
 
 									<div class="fondo-portada mx-auto"
-										style="background-image: url('../${pelicula.urlPortada}');">
+										style="background-image: url('${pelicula.urlPortada}');">
 									</div>
 
 									<!-- DESCRIPCION CARD -->

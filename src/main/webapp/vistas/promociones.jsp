@@ -90,7 +90,7 @@
 										<!-- IMAGEN CARD -->
 
 										<div class="fondo-portada mx-auto"
-											style="background-image: url('../${promocion.urlPortada}');">
+											style="background-image: url('${promocion.urlPortada}');">
 										</div>
 
 										<!-- DESCRIPCION CARD -->
@@ -191,7 +191,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula1.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -203,7 +203,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula2.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -214,7 +214,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula3.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -283,7 +283,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula1.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -294,7 +294,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula2">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula2.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -305,7 +305,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula3">
-										<option value="${peliculas.titulo}">
+										<option value="${pelicula3.titulo}">
 									</c:forEach>
 								</datalist>
 
