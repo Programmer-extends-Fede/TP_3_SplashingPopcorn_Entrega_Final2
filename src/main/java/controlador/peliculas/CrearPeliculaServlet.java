@@ -23,6 +23,10 @@ public class CrearPeliculaServlet extends HttpServlet implements Servlet {
 		this.servicioPelicula = new ServicioPelicula();
 	}
 
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		super.doGet(req, resp);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

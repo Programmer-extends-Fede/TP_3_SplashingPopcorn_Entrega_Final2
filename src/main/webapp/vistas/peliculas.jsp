@@ -51,7 +51,7 @@
 		<c:if test="${usuario.esAdmin()}">
 			<div id="menuAdmin"
 				class="nav nav-pills position-absolute top-0 end-0">
-				<a href="/peliculas/crearPelicula.ad" type="button" class="btn btn-success" id="botonCrear">Crear
+				<a href="/TP_3_SplashingPopcorn_Entrega_Final2/crearPelicula.ad" type="button" class="btn btn-success" id="botonCrear">Crear
 					película</a>
 				<a href="/generos/crearGenero.ad" type="button" class="btn btn-success" id="botonCrear">Crear
 					género</a>
@@ -97,7 +97,7 @@
 								>
 								<div
 									class="row flex-column fondo-backdrop carta mx-auto h-80 m-0" data-type="${pelicula.genero}"
-									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%,  url('${pelicula.urlFondo}');">
+									style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 0.5) 80%), url('${pelicula.urlFondo}');">
 									<!-- IMAGEN CARD -->
 
 									<div class="fondo-portada mx-auto"

@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/botones.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/estiloPeliculas.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/Prueba.css">
 
 <script type="text/javascript"
 	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js"></script>
@@ -23,7 +23,7 @@
 <script type="text/javascript"
 	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js"></script>
 
 </head>
 
@@ -58,24 +58,26 @@
 
 			<div id="fondoPrincipal" class="container-fluid">
 
-				<div id="contenidoPrincipal">
+				<div id="contenidoPrincipal" class="row flex-lg-row flex-column">
 
 					<!-- LISTADO DE GÉNEROS -->
-					<div class="lista-generos">
-						<a class="genero-item" data-type="todos" href="#"><c:out
-								value="Todas"></c:out></a>
-						<c:forEach items="${generos}" var="genero">
+					<div class="col-lg-2 col-12 mt-5 d-flex justify-content-center">
+						<div class="lista-generos row flex-lg-column flex-row flex-fill">
+							<a class="genero-item col-lg-0 col-auto mt-lg-0 mt-2 mx-lg-0 mx-auto py-lg-2 py-0" data-type="todos" href="#"><c:out
+									value="Todas"></c:out></a>
+							<c:forEach items="${generos}" var="genero">
 
-							<a class="genero-item" data-type="${genero.nombre}" href="#">
-								<c:out value="${genero.nombre}"></c:out>
-							</a>
-						</c:forEach>
+								<a class="genero-item col-lg-0 col-auto mt-2  mx-lg-0 mx-auto py-lg-2 py-0" data-type="${genero.nombre}"
+									href="#"> <c:out value="${genero.nombre}"></c:out>
+								</a>
+							</c:forEach>
+						</div>
 					</div>
 
 					<!-- CONTENEDOR DE CARDS -->
 
-					<div class="d-flex col-12 flex-column mt-0 mb-3"
-						id="contenedor-cards">
+					<div class="d-flex col-lg-9 col-12 flex-column  mx-auto mt-0 mb-3"
+						id="contenedor-paginador-xxl">
 
 						<!-- TABLA DE CARDS -->
 						<div class="row justify-content-around contenido m-0 mb-4">
@@ -86,7 +88,7 @@
 									<div
 										class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
 										data-type="${promocion.getGenero()}"
-										style="background-image: linear-gradient(90deg, rgba(22, 26, 29, 1) 30%, rgba(22, 26, 29, 1) 80%');">
+										style="background-image: linear-gradient(1deg, #a4161a 30%, #b46f6f 80%); box-shadow: 10px 5px 16px rgb(234 205 205/ 50%);">
 										<!-- IMAGEN CARD -->
 
 										<div class="fondo-portada mx-auto"
@@ -145,7 +147,7 @@
 						</div>
 						<!-- PAGINADOR -->
 						<div
-							class="row text-center m-0 mt-auto p-4 border-top border-dark">
+							class="row text-center m-0 mt-auto mt-3 p-md-4 p-0 pt-4 border-top border-dark">
 							<div class="page_navigation"></div>
 						</div>
 					</div>
@@ -191,7 +193,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo}">
+										<option value="${pelicula1.titulo}">                 
 									</c:forEach>
 								</datalist>
 
@@ -228,12 +230,11 @@
 								<div class="invalid-feedback">Introduzca la descripción
 									por favor</div>
 							</div>
-							
+
 							<div class="form-floating mb-3">
-								<label for="urlPortada">Foto de portada</label>
-								<input type="file" class="form-control"
-									id="urlPortada" name="urlPortada" required
-									value="${promocion.urlPortada}"> 
+								<label for="urlPortada">Foto de portada</label> <input
+									type="file" class="form-control" id="urlPortada"
+									name="urlPortada" required value="${promocion.urlPortada}">
 								<div class="invalid-feedback">Introduzca una imagen por
 									favor</div>
 							</div>
@@ -318,16 +319,15 @@
 								<div class="invalid-feedback">Introduzca la descripción
 									por favor</div>
 							</div>
-							
+
 							<div class="form-floating mb-3">
-								<label for="urlPortada">Foto de portada</label>
-								<input type="file" class="form-control"
-									id="urlPortada" name="urlPortada" required
-									value="${promocion.urlPortada}"> 
+								<label for="urlPortada">Foto de portada</label> <input
+									type="file" class="form-control" id="urlPortada"
+									name="urlPortada" required value="${promocion.urlPortada}">
 								<div class="invalid-feedback">Introduzca una imagen por
 									favor</div>
 							</div>
-							
+
 
 							<button type="submit"
 								class="w-100 mb-2 btn btn-lg rounded-4 btn-warning">Guardar
@@ -342,7 +342,7 @@
 
 	</main>
 
-	<footer class="m-1">
+	<footer class="m-1" >
 		<!-- ELEMENTO FOOTER -->
 		<jsp:include page="../parciales/footer.jsp"></jsp:include>
 	</footer>
