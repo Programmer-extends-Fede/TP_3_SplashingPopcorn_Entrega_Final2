@@ -1,14 +1,5 @@
 ;
-(function($) { /*******************************************************************************************/
-	// jquery.pajinate.js - version 0.4
-	// A jQuery plugin for paginating through any number of DOM elements
-	// 
-	// Copyright (c) 2010, Wes Nolte (http://wesnolte.com)
-	// Licensed under the MIT License (MIT-LICENSE.txt)
-	// http://www.opensource.org/licenses/mit-license.php
-	// Created: 2010-04-16 | Updated: 2010-04-26
-	//
-	/*******************************************************************************************/
+(function($) { 
 
 	$.fn.pajinate = function(options) {
 		// Set some state information
@@ -54,7 +45,19 @@
 			$page_container = $(this);
 			$item_container = $(this).find(options.item_container_id);
 			$items = $page_container.find(options.item_container_id).children();
-
+			
+			/*console.log($items[2].classList.contains("escondido"))
+			console.log($items.size())
+			for(let i = 0; i < $items.size();i++){
+				if($items[i].classList.contains("escondido")){
+					$items.splice(i,1)
+					console.log("entro " + i)	
+				}
+			}
+			
+			console.log($items.size())*/
+							
+			
 			if (options.abort_on_small_lists && options.items_per_page >= $items.size()) return $page_container;
 
 			meta = $page_container;

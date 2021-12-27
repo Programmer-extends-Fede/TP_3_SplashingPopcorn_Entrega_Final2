@@ -106,13 +106,14 @@
 							</div>
 
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="admin"
-									id="administrador"> <label class="form-check-label"
-									for="administrador"> Administrador </label>
+								<input class="form-check-input" type="radio" value="admin"
+									name="admin" id="administrador"> <label
+									class="form-check-label" for="administrador">
+									Administrador </label>
 							</div>
 							<div class="form-check">
-								<input class="form-check-input" type="radio" name="noAdmin"
-									id="noAdministrador" checked> <label
+								<input class="form-check-input" type="radio" value="usuario"
+									name="admin" id="noAdministrador" checked> <label
 									class="form-check-label" for="noAdministrador"> Usuario
 								</label>
 							</div>
@@ -131,9 +132,10 @@
 								<div class="invalid-feedback">Ingrese el tiempo disponible</div>
 							</div>
 
-							<select class="form-select" aria-label="Default select example" name="genero" id="genero">
+							<select class="form-select" aria-label="Default select example"
+								name="genero" id="genero">
 								<option selected>Elegir una preferencia</option>
-								<c:forEach items="${generos}" var="genero" varStatus="itemLoop">	
+								<c:forEach items="${generos}" var="genero" varStatus="itemLoop">
 									<option value="${genero.nombre}"><c:out
 											value="${genero.nombre}"></c:out></option>
 								</c:forEach>

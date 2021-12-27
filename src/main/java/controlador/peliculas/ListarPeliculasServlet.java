@@ -34,6 +34,7 @@ public class ListarPeliculasServlet extends HttpServlet implements Servlet{
 		
 		ArrayList<Pelicula> peliculas = servicioPelicula.listar();
 		ArrayList<Genero> generos = servicioGenero.listar();
+		
 		request.setAttribute("peliculas", peliculas);
 		request.setAttribute("generos", generos);
 

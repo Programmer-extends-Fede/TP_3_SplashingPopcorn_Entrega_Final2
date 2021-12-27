@@ -16,5 +16,4 @@ public class Genero {
 		this.nombre = nombre;
 	}
 	
-	
 }

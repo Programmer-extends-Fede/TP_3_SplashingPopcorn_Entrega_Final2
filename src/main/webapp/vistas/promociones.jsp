@@ -1,82 +1,105 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Promociones</title>
 
 <jsp:include page="../parciales/librerias.jsp"></jsp:include>
 
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/index.css">
-<link rel="stylesheet" type="text/css"
 	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/botones.css">
 <link rel="stylesheet" type="text/css"
-	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/Prueba.css">
+	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/estiloPeliculasYPromos.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-<script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js"></script>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js" defer></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js"></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js" defer></script>
+<script type="text/javascript"
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js" defer></script>
 
 </head>
 
 <body>
 	<header>
 		<!-- ELEMENTO HEADER -->
-
 		<jsp:include page="../parciales/header.jsp"></jsp:include>
-
 	</header>
-
 	<main>
 
 		<!-- MODAL INICIO SESION -->
 		<jsp:include page="../parciales/inicioSesionModal.jsp"></jsp:include>
 
-		<!-- BARRA ADMIN -->
-
-		<div id="barraTitulo">
-			<div id="titulo">
-				<h1>Promociones</h1>
+		<div class="container-fluid p-0">
+			<!-- TITULO -->
+			<div class="h1 text-center font-lato m-0 titulo">
+				<div class="animate__animated animate__backInLeft">Promociones</div>
 			</div>
+			<div class="triangulo"></div>
 
-			<c:if test="${usuario.esAdmin()}">
-				<div id="menuAdmin"
-					class="nav nav-pills position-absolute top-0 end-0">
-					<button type="button" class="btn btn-success"
-						data-bs-toggle="modal" data-bs-target="#modalCrearPromocion"
-						id="botonCrear">Crear nueva</button>
-				</div>
-			</c:if>
 
-			<div id="fondoPrincipal" class="container-fluid">
 
-				<div id="contenidoPrincipal" class="row flex-lg-row flex-column">
-
+			<!-- CONTENEDOR GENERO, CARDS Y PAGINADOR -->
+			<div class="container-fluid p-0 mt-5 mb-3 ">
+				<div class="row flex-lg-row flex-column mx-0">
 					<!-- LISTADO DE GÉNEROS -->
-					<div class="col-lg-2 col-12 mt-5 d-flex justify-content-center">
-						<div class="lista-generos row flex-lg-column flex-row flex-fill">
-							<a class="genero-item col-lg-0 col-auto mt-lg-0 mt-2 mx-lg-0 mx-auto py-lg-2 py-0" data-type="todos" href="#"><c:out
-									value="Todas"></c:out></a>
-							<c:forEach items="${generos}" var="genero">
+					<div
+						class="col-xxl-3 col-xl-3 col-11 d-flex justify-content-center mx-xl-auto mx-0 columna-filtros">
+						<div class="row w-100 flex-column">
+							<div>
+								<c:if test="${usuario.esAdmin()}">
+									<div id="menuAdmin"
+										class="nav nav-pills position-absolute top-0 end-0">
+										<button type="button" class="btn btn-success"
+											data-bs-toggle="modal" data-bs-target="#modalCrearPromocion"
+											id="botonCrear">Crear nueva</button>
+									</div>
+								</c:if>
+							</div>
+							<div
+								class="text-center my-xl-5 mt-2 mb-4 h1 text-white font-lato titulo-filtro">Filtrar
+								por genero</div>
+							<div class="overflow-auto" id="contenedor-filtros">
+								<div
+									class="row text-center justify-content-xl-start justify-content-center lista-generos"
+									role="group" aria-label="Basic radio toggle button group">
 
-								<a class="genero-item col-lg-0 col-auto mt-2  mx-lg-0 mx-auto py-lg-2 py-0" data-type="${genero.nombre}"
-									href="#"> <c:out value="${genero.nombre}"></c:out>
-								</a>
-							</c:forEach>
+									<div
+										class="col-xl-12 col-auto mt-xl-4 mb-xl-0 mt-md-2 mb-2 mt-1">
+										<input type="radio" class="btn-check genero-item"
+											data-type="todos" name="btnradio" id="btn1"
+											autocomplete="off"> <label
+											class="boton d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
+											id="todos" for="btn1">Todas</label>
+									</div>
+									<c:forEach items="${generos}" var="genero">
+										<div
+											class="col-xl-6 p-xl-0 col-auto mt-xl-4 mb-xl-0 mt-md-2 mb-2 mt-1">
+											<input type="radio" class="btn-check genero-item"
+												data-type="${genero.nombre}" name="btnradio"
+												id="${genero.nombre}" autocomplete="off"> <label
+												class="boton d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
+												for="${genero.nombre}">${genero.nombre}</label>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
 						</div>
 					</div>
 
 					<!-- CONTENEDOR DE CARDS -->
-
-					<div class="d-flex col-lg-9 col-12 flex-column  mx-auto mt-0 mb-3"
+					<div
+						class="d-flex col-xl-9 col-12 flex-column mt-0 border border-dark border-4 border-end-0 border-start-0"
 						id="contenedor-paginador-xxl">
 
 						<!-- TABLA DE CARDS -->
@@ -84,33 +107,46 @@
 							<!-- CARD -->
 							<c:forEach items="${promociones}" var="promocion">
 								<div
-									class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2">
-									<div
-										class="row flex-column fondo-backdrop carta mx-auto h-80 m-0"
-										data-type="${promocion.getGenero()}"
-										style="background-image: linear-gradient(1deg, #a4161a 30%, #b46f6f 80%); box-shadow: 10px 5px 16px rgb(234 205 205/ 50%);">
+									class="inicio display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
+									data-type="${promocion.genero}">
+									<!-- BACKDROP IMAGEN -->
+									<div class="row flex-column fondo-backdrop carta mx-auto m-0"
+										data-type="${promocion.genero}"
+										style="background-image: linear-gradient(130deg, rgb(0 0 0) 30%, rgb(13 13 13/ 88%) 80%);">
 										<!-- IMAGEN CARD -->
-
 										<div class="fondo-portada mx-auto"
 											style="background-image: url('${promocion.urlPortada}');">
 										</div>
 
 										<!-- DESCRIPCION CARD -->
 										<div class="col d-flex p-0">
-											<div class="row m-0 my-2 w-100" id="contenedorDescrip">
-												<div class="d-flex">
+											<div class="row m-0 my-2 w-100">
+												<!-- TITULO CARD -->
+												<div class="d-flex align-items-center" style="height: 60px">
 													<p class="titulo-carta h3 mx-auto text-center text-white">
-														<c:out value="${promocion.titulo}"></c:out>
-														<br>
-														<c:out value="Duración: ${promocion.getDuracion()} min"></c:out>
-														<br>
-														<c:out value="Precio: $ ${promocion.getPrecio()}"></c:out>
-														<br>
-													</p>
+														${promocion.titulo}</p>
 												</div>
-												<div class="d-flex mt-auto justify-content-center">
+
+												<!-- PRECIO Y DURACION CARD -->
+												<div class="row text-white text-center mb-3 mx-auto">
+													<div class="col-6 border-bottom border-1">
+														<div class="row flex-column">
+															<div class="col-12">Precio:</div>
+															<span class="h5 text-danger precio-duracion">$${promocion.precio}</span>
+														</div>
+													</div>
+													<div class="col-6">
+														<div class="row flex-column border-bottom border-1">
+															<div class="col-12">Duración:</div>
+															<span class="h5 text-danger precio-duracion">${promocion.duracion}
+																min.</span>
+														</div>
+													</div>
+												</div>
+												<!-- BOTONES CARD -->
+												<div class="d-flex mt-auto justify-content-center mb-2">
 													<a
-														href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePromocion?id=${promocion.id}"
+														href="/TP_3_SplashingPopcorn_Entrega_Final2/listarDetallePelicula?id=${promocion.id}"
 														class="botondes learn-more d-flex"> <span
 														class="circle" aria-hidden="true"> <span
 															class="icon arrow"></span>
@@ -121,7 +157,7 @@
 												<c:if test="${usuario.esAdmin()}">
 													<div class="d-flex mt-auto justify-content-center">
 														<a
-															href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/editarPromocion.ad"
+															href="/TP_3_SplashingPopcorn_Entrega_Final2/editarPelicula.ad"
 															class="botondes learn-more d-flex"> <span
 															class="circle" aria-hidden="true" id="botonAdmin">
 																<span class="icon arrow"></span>
@@ -130,7 +166,7 @@
 													</div>
 													<div class="d-flex mt-auto justify-content-center">
 														<a
-															href="/TP_3_SplashingPopcorn_Entrega_Final2/promocion/borrarPromocion.ad"
+															href="/TP_3_SplashingPopcorn_Entrega_Final2/borrarPelicula.ad"
 															class="botondes learn-more d-flex"> <span
 															class="circle" aria-hidden="true" id="botonAdmin">>
 																<span class="icon arrow"></span>
@@ -147,17 +183,14 @@
 						</div>
 						<!-- PAGINADOR -->
 						<div
-							class="row text-center m-0 mt-auto mt-3 p-md-4 p-0 pt-4 border-top border-dark">
+							class="row text-center mx-2 mt-auto pt-4 pb-4 border-top border-dark">
 							<div class="page_navigation"></div>
 						</div>
 					</div>
-
-
-
-
 				</div>
 			</div>
 		</div>
+
 		<!-- MODAL CREAR PROMOCIÓN -->
 		<div class="modal fade" id="modalCrearPromocion" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,7 +226,7 @@
 
 								<datalist id="listaPeliculas">
 									<c:forEach items="${peliculas}" var="pelicula1">
-										<option value="${pelicula1.titulo}">                 
+										<option value="${pelicula1.titulo}">
 									</c:forEach>
 								</datalist>
 
@@ -342,7 +375,7 @@
 
 	</main>
 
-	<footer class="m-1" >
+	<footer>
 		<!-- ELEMENTO FOOTER -->
 		<jsp:include page="../parciales/footer.jsp"></jsp:include>
 	</footer>

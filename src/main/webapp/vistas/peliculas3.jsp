@@ -14,17 +14,15 @@
 	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/botones.css">
 <link rel="stylesheet" type="text/css"
 	href="/TP_3_SplashingPopcorn_Entrega_Final2/css/estiloPeliculasYPromos.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
 	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/filtrarGeneros.js" defer></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js" defer></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript"
-	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js" defer></script>
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.pajinate.js"></script>
+<script type="text/javascript"
+	src="/TP_3_SplashingPopcorn_Entrega_Final2/js/jquery.resize2.js"></script>
 
 </head>
 
@@ -43,66 +41,44 @@
 
 		<div class="container-fluid p-0">
 			<!-- TITULO -->
-			<div class="h1 text-center font-lato m-0 titulo">
-				<div class="animate__animated animate__backInLeft">Películas</div>
-			</div>
+			<div class="h1 text-center font-lato m-0 titulo">Películas</div>
 			<div class="triangulo"></div>
 
+			<c:if test="${usuario.esAdmin()}">
+				<!-- BOTONES DE USUARIOS -->
+				<div id="menuAdmin"
+					class="nav nav-pills position-absolute top-0 end-0">
+					<a href="/TP_3_SplashingPopcorn_Entrega_Final2/crearPelicula.ad"
+						type="button" class=" mb-2 btn btn-success">Crear película</a> <a
+						href="/TP_3_SplashingPopcorn_Entrega_Final2/crearGenero.ad"
+						type="button" class="btn btn-success">Crear género</a>
+
+				</div>
+			</c:if>
+
 			<!-- CONTENEDOR GENERO, CARDS Y PAGINADOR -->
-			<div class="container-fluid p-0 mt-5 mb-3 ">
+			<div class="container-fluid p-0">
+
 				<div class="row flex-lg-row flex-column mx-0">
+
 					<!-- LISTADO DE GÉNEROS -->
 					<div
-						class="col-xxl-3 col-xl-3 col-11 d-flex justify-content-center mx-xl-auto mx-0 columna-filtros">
+						class="col-xxl-3 col-xl-3 col-11 mt-5 d-flex justify-content-center mx-auto bg-warning">
 						<div class="row w-100 flex-column">
-							<c:if test="${usuario.esAdmin()}">
-								<div
-									class="text-center my-xl-5 mt-2 mb-4 h1 text-white font-lato titulo-filtro">Menu
-									administrador</div>
-								<div>
-									<!-- BOTONES DE USUARIOS -->
-									<div class="row">
-										<div class="col-6 p-0">
-											<a href="#" type="button"
-												class="boton boton-admin d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
-												data-bs-toggle="modal" data-bs-target="#modalCrearPelicula">Crear
-												película</a>
-										</div>
-
-										<div class="col-6 p-0 ">
-											<a href="#" type="button"
-												class="boton boton-admin d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center">Crear
-												genero</a>
-										</div>
-
-									</div>
-								</div>
-							</c:if>
-
-							<div
-								class="text-center my-xl-5 mt-2 mb-4 h1 text-white font-lato titulo-filtro">Filtrar
-								por genero</div>
-							<div class="overflow-auto" id="contenedor-filtros">
-								<div
-									class="row text-center justify-content-xl-start justify-content-center lista-generos"
-									role="group" aria-label="Basic radio toggle button group">
-
-									<div
-										class="col-xl-12 col-auto mt-xl-4 mb-xl-0 mt-md-2 mb-2 mt-1">
-										<input type="radio" class="btn-check genero-item"
-											data-type="todos" name="btnradio" id="btn1"
-											autocomplete="off"> <label
-											class="boton d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
-											id="todos" for="btn1">Todas</label>
+							<div class="my-5 text-center border-botton">Elige un género</div>
+							<div class="overflow-auto bg-dark" style="height: 500px;">
+								<div class="row text-center lista-generos" role="group"
+									aria-label="Basic radio toggle button group">
+									<div class="col-12 mt-5">
+										<input type="radio" class="btn-check genero-item" data-type="todos" name="btnradio"
+											id="btn1" autocomplete="off"> <label
+											class="col-5 btn btn-outline-primary" for="btn1">Todas</label>
 									</div>
 									<c:forEach items="${generos}" var="genero">
-										<div
-											class="col-xl-6 p-xl-0 col-auto mt-xl-4 mb-xl-0 mt-md-2 mb-2 mt-1">
-											<input type="radio" class="btn-check genero-item"
-												data-type="${genero.nombre}" name="btnradio"
-												id="${genero.nombre}" autocomplete="off"> <label
-												class="boton d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
-												for="${genero.nombre}">${genero.nombre}</label>
+										<div class="col-6 mt-4">
+											<input type="radio" class="btn-check genero-item" data-type="${genero.nombre}" name="btnradio"
+												id="btnradio1" autocomplete="off"> <label
+												class="col-10 btn btn-outline-primary" for="btnradio1">${genero.nombre}</label>
 										</div>
 									</c:forEach>
 								</div>
@@ -111,8 +87,7 @@
 					</div>
 
 					<!-- CONTENEDOR DE CARDS -->
-					<div
-						class="d-flex col-xl-9 col-12 flex-column mt-0 border border-dark border-4 border-end-0 border-start-0"
+					<div class="d-flex col-xl-9 col-12 flex-column mt-0 mb-3"
 						id="contenedor-paginador-xxl">
 
 						<!-- TABLA DE CARDS -->
@@ -120,8 +95,7 @@
 							<!-- CARD -->
 							<c:forEach items="${peliculas}" var="pelicula">
 								<div
-									class="inicio display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2"
-									data-type="${pelicula.genero}">
+									class="display-flex justify-content-center col-md-4 col-5 mt-5 px-md-4 px-sm-5 px-2">
 									<!-- BACKDROP IMAGEN -->
 									<div class="row flex-column fondo-backdrop carta mx-auto m-0"
 										data-type="${pelicula.genero}"
@@ -195,8 +169,7 @@
 							</c:forEach>
 						</div>
 						<!-- PAGINADOR -->
-						<div
-							class="row text-center mx-2 mt-auto pt-4 pb-4 border-top border-dark">
+						<div class="row text-center mt-auto pt-4 border-top border-dark">
 							<div class="page_navigation"></div>
 						</div>
 					</div>
@@ -205,26 +178,26 @@
 		</div>
 
 
-
-
 		<!-- MODAL CREAR PELÍCULA -->
-		<div class="modal fade" id="modalCrearPelicula"
-			data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		<div class="modal fade" id="modalCrearPelicula" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered modal-lg">
+			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content rounded-5 shadow">
-					<!-- ENCABEZADO DEL MODAL -->
 					<div class="modal-header p-5 pb-4 border-bottom-0">
 						<div class="d-inline-flex">
-							<h2 class="align-self-center">Crear Usuario</h2>
+							<img alt="" src="imagenes/logo.png"
+								style="width: 30%; margin: -20px;">
+							<h2 class="align-self-center">Crear película</h2>
 						</div>
 
 						<button type="button" class="btn-close" data-bs-dismiss="modal"
 							aria-label="Close"></button>
 					</div>
-					<!-- CUERPO DEL MODAL -->
+
 					<div class="modal-body p-5 pt-0">
-						<form action="crearPelicula.ad" method="post">
+						<form
+							action="/TP_3_SplashingPopcorn_Entrega_Final2/peliculas/crearPelicula.ad"
+							method="post">
 
 							<label for="titulo">Titulo de película</label>
 							<div class="form-floating mb-3">
@@ -268,7 +241,7 @@
 							<div class="form-floating mb-3">
 								<select class="form-select" aria-label="Default select example">
 									<c:forEach items="${generos}" var="genero">
-										<option value="${genero.nombre}">${genero.nombre}</option>
+										<option value="${genero.nombre}"></option>
 									</c:forEach>
 								</select>
 							</div>

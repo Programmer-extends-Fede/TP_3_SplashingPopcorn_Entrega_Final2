@@ -33,7 +33,7 @@ main{
 }
 
 #fondo-pochoclos{
-	background: url(../imagenes/fondoPochoclos.jpg)!important;
+	background-image: url(../imagenes/fondoPochoclos.jpg)!important;
 	background-size: 20%;
 	background-attachment: fixed;
 }

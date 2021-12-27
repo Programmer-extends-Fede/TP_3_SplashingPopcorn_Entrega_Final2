@@ -1,38 +1,84 @@
-$(document).ready(function(){
+function reescalar() {
+	if ($(window).width() >= 1184) {
+
+		$('#contenedor-paginador-xxl').pajinate({
+			num_page_links_to_display: 5,
+			items_per_page: 15,
+			item_container_id: '.contenido'
+		});
+	}
+
+	if ($(window).width() < 1184) {
+
+		$('#contenedor-paginador-xxl').pajinate({
+			num_page_links_to_display: 5,
+			items_per_page: 9,
+			item_container_id: '.contenido'
+		});
+
+	}
+
+	if ($(window).width() < 748) {
+
+		$('#contenedor-paginador-xxl').pajinate({
+			num_page_links_to_display: 3,
+			items_per_page: 6,
+			item_container_id: '.contenido'
+		});
+	}
+};
+
+$(document).ready(function() {
+
+	var nodos = document.querySelector('.contenido').children;
+	let copia = Array();
+	let copiaNodos = Object.assign(copia, nodos);
+	let padre = document.querySelector('.contenido');
 
 	// AGREGANDO CLASE ACTIVE AL PRIMER ENLACE ====================
-	$('.lista-generos .genero-item[data-type="todos"]').addClass('item-activado');
+	console.log($('#todos'));
+	$('.lista-generos .genero-item[data-type="todos"]').click();
+	
+	
+	// AGREGANDO CLASE AL BOTON PULSADO ================================
+	$('.boton').click(function(){
+		$('.boton').removeClass('animate__animated animate__tada ');
+		$(this).addClass('animate__animated animate__tada ');
+		
+	});	
 
 	// FILTRANDO PRODUCTOS  ============================================
-
-	$('.genero-item').click(function(){
+	$('.genero-item').click(function() {
 		var genero = $(this).attr('data-type');
 
+		function eliminar() {
+			for (let i = 0; i < nodos.length; i++) {
+				padre.removeChild(nodos[i]);
+				i--;
+			}
+		} eliminar();
+
 		// AGREGANDO CLASE ACTIVE AL ENLACE SELECCIONADO
-		$('.genero-item').removeClass('item-activado');
-		$(this).addClass('item-activado');
 
-		// OCULTANDO PRODUCTOS =========================
-		$('.carta').css('transform', 'scale(0)');
-		function hideCard(){
-			$('.carta').parent().hide();
-		} setTimeout(hideCard,200);
-
-		
 		// MOSTRANDO PRODUCTOS =========================
-		function showCard(){
-			$('.carta[data-type="'+genero+'"]').parent().show();
-			$('.carta[data-type="'+genero+'"]').css('transform', 'scale(1)');
-		} setTimeout(showCard,200);
-		
+		function showCard() {
+			for (let i = 0; i < copiaNodos.length; i++) {
+				if (copiaNodos[i].dataset.type == genero) {
+					padre.appendChild(copiaNodos[i])
+				}
+			}
+		} showCard();
+		reescalar();
 	});
 
 	// MOSTRANDO TODOS LOS PRODUCTOS =======================
 
-	$('.genero-item[data-type="todos"]').click(function(){
-		function showAll(){
-			$('.carta').parent().show();
-			$('.carta').css('transform', 'scale(1)');
-		} setTimeout(showAll,200);
+	$('.genero-item[data-type="todos"]').click(function() {
+		function showAll() {
+			for (let i = 0; i < copiaNodos.length; i++) {
+				padre.appendChild(copiaNodos[i])
+			}
+		} showAll();
+		reescalar();
 	});
 });

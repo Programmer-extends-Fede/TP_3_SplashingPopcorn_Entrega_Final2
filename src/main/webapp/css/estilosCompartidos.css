@@ -14,6 +14,7 @@ body{
 	opacity: 95%;
 	transition: 0.4s;
 	background-image: linear-gradient(135deg, #161A1D, #161A1D 250px, rgba(186, 24, 27, .8) 252px, rgba(102, 7, 8, .9) 1300px), url(../imagenes/fondoBarra.jpg)!important;
+	
 }
 
 #barra:hover{

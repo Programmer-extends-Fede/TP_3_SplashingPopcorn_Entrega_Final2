@@ -3,7 +3,7 @@
 		    
 			$('#contenedor-paginador-xxl').pajinate({
 				num_page_links_to_display : 5,
-				items_per_page : 21,
+				items_per_page : 15,
 				item_container_id : '.contenido'
 			});
 		  }
@@ -18,11 +18,11 @@
 		    
 		  }
 
-		if($(window).width() < 752){
+		if($(window).width() < 748){
 		    
 			$('#contenedor-paginador-xxl').pajinate({
-				num_page_links_to_display : 3,
-				items_per_page : 4,
+				num_page_links_to_display : 2,
+				items_per_page : 6,
 				item_container_id : '.contenido'
 			}); 
 		  }
@@ -34,7 +34,7 @@
 		    
 			$('#contenedor-paginador-xxl').pajinate({
 				num_page_links_to_display : 5,
-				items_per_page : 21,
+				items_per_page : 15,
 				item_container_id : '.contenido'
 			});
 		    
@@ -50,11 +50,11 @@
 		    
 		  }
 
-		if($(window).width() < 752){
+		if($(window).width() < 748){
 		    
 			$('#contenedor-paginador-xxl').pajinate({
-				num_page_links_to_display : 3,
-				items_per_page : 4,
+				num_page_links_to_display : 2,
+				items_per_page : 6,
 				item_container_id : '.contenido'
 			});
 		    
