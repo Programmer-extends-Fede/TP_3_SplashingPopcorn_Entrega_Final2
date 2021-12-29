@@ -54,18 +54,34 @@
 				<div class="row flex-lg-row flex-column mx-0">
 					<!-- LISTADO DE GÉNEROS -->
 					<div
-						class="col-xxl-3 col-xl-3 col-11 d-flex justify-content-center mx-xl-auto mx-0 columna-filtros">
+						class="col-xl-3 col-11 p-xxl-0 mt-xl-5 d-flex justify-content-center mx-xl-auto mx-0 columna-filtros">
 						<div class="row w-100 flex-column">
-							<div>
-								<c:if test="${usuario.esAdmin()}">
-									<div id="menuAdmin"
-										class="nav nav-pills position-absolute top-0 end-0">
-										<button type="button" class="btn btn-success"
-											data-bs-toggle="modal" data-bs-target="#modalCrearPromocion"
-											id="botonCrear">Crear nueva</button>
+							<!-- BOTONES DE ADMIN -->
+							<c:if test="${usuario.esAdmin()}">
+								<div class="row px-0 m-0 align-items-center border-bottom border-2" id="contenedor-btn-admin">
+									<div
+										class="col-xl-12 col-6 text-center my-xl-5 mt-2 mb-4 h1 text-white font-lato titulo-filtro">Menu
+										administrador</div>
+									<div class="col-xl-12 col-6">
+
+										<div class="col-12 row m-0">
+											<div class="col-6 p-0">
+												<a href="#" type="button"
+													class="boton-admin d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center"
+													data-bs-toggle="modal" data-bs-target="#modalCrearPromocion">Añadir
+													promoción</a>
+											</div>
+
+											<div class="col-6 p-0 ">
+												<a href="#" type="button"
+													class="boton-admin d-flex col-10 btn btn-danger text-center mx-auto align-items-center justify-content-center">Añadir
+													genero</a>
+											</div>
+										</div>
 									</div>
-								</c:if>
-							</div>
+								</div>
+							</c:if>
+
 							<div
 								class="text-center my-xl-5 mt-2 mb-4 h1 text-white font-lato titulo-filtro">Filtrar
 								por genero</div>

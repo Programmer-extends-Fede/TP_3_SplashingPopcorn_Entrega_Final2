@@ -46,6 +46,7 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 		this.urlPortada = urlPortada;
 		this.urlFondo = urlFondo;
 		this.anioLanzamiento = anioLanzamiento;
+		this.lema = lema;
 	}
 
 	@Override
@@ -92,12 +93,12 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 	public String getDescripcion() {
 		return this.descripcion;
 	}
-	
+
 	@Override
 	public int getAnioLanzamiento() {
 		return this.anioLanzamiento;
 	}
-	
+
 	public String getLema() {
 		return lema;
 	}
@@ -105,7 +106,7 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 	public void setLema(String lema) {
 		this.lema = lema;
 	}
-	
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
@@ -158,13 +159,13 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 
 	@Override
 	public boolean tieneStock() {
-		return this.getStock()>0;
+		return this.getStock() > 0;
 	}
-	
+
 	public boolean esNulo() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean noEstaIncluidaEn(ArrayList<Pelicula> peliculasCompradas) {
 		return !peliculasCompradas.contains(this);
@@ -193,7 +194,7 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 				&& id == other.id && Objects.equals(titulo, other.titulo) && precio == other.precio
 				&& Objects.equals(genero, other.genero);
 	}
-	
+
 	@Override
 	public boolean esValida() {
 		validar();
@@ -216,8 +217,14 @@ public class Pelicula implements Sugerencia, Comparable<Pelicula> {
 		if (stock < 0) {
 			errores.put("stock", "Debe ser positivo");
 		}
-		if(anioLanzamiento>1500) {
+		if (anioLanzamiento < 1500) {
 			errores.put("anioLanzamiento", "Debe ser posterior a 1500");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Pelicula [id=" + id + ", titulo=" + titulo + ", lema=" + lema + "]";
+	}
+
 }

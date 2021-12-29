@@ -28,6 +28,6 @@ public class BorrarPeliculaServlet extends HttpServlet implements Servlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		servicioPelicula.borrar(id);
 
-		response.sendRedirect("/pelicula");
+		response.sendRedirect("peliculas");
 	}
 }

@@ -72,7 +72,7 @@ public class PeliculaDAO {
 	}
 
 	public int editar(Pelicula pelicula) {
-		String sql = "UPDATE peliculas SET titulo = ?, precio = ?, duracion = ?, stock = ?, fk_genero = ?, descripcion = ?, foto_portada = ?, foto_fondo = ?, fecha_estreno = ?, lema = ? WHERE id = ?";
+		String sql = "UPDATE peliculas SET titulo = ?, precio = ?, duracion_min = ?, stock = ?, fk_genero = ?, descripcion = ?, foto_portada = ?, foto_fondo = ?, fecha_estreno = ?, lema = ? WHERE id = ?";
 		int filasModificadas = 0;
 		try {
 			Connection conexion = ProveedorDeConexion.getConexion();
@@ -89,9 +89,8 @@ public class PeliculaDAO {
 			declaracion.setInt(9, pelicula.getAnioLanzamiento());
 			declaracion.setString(10, pelicula.getLema());
 			declaracion.setInt(11, pelicula.getId());
-
 			
-
+			filasModificadas = declaracion.executeUpdate();
 		} catch (SQLException e) {
 			throw new DatosPerdidosError(e);
 		}

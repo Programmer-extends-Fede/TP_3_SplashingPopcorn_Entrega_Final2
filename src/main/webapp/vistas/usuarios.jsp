@@ -62,7 +62,8 @@
 					Usuario</button>
 			</div>
 		</div>
-
+		
+		<!-- MODAL CREAR USUARIO -->
 		<div class="modal fade" id="modalCrearUsuario"
 			data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 			aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -98,7 +99,7 @@
 							</div>
 
 							<div class="form-floating mb-3">
-								<input type="password" class="form-control rounded-4"
+								<input type="text" class="form-control rounded-4"
 									id="contrasena" placeholder="Password" required="required"
 									name="contrasena"> <label for="contrasena">Contraseña</label>
 								<div class="invalid-feedback">Introduzca una contraseña

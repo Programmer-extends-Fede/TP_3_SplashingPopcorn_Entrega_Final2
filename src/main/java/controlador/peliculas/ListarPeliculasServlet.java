@@ -41,7 +41,19 @@ public class ListarPeliculasServlet extends HttpServlet implements Servlet{
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/peliculas.jsp");
 
 		dispatcher.forward(request, response);
-		
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		ArrayList<Pelicula> peliculas = servicioPelicula.listar();
+		ArrayList<Genero> generos = servicioGenero.listar();
+		
+		req.setAttribute("peliculas", peliculas);
+		req.setAttribute("generos", generos);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/vistas/peliculas.jsp");
 
+		dispatcher.forward(req, resp);
+	}
 }

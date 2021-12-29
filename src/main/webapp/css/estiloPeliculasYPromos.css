@@ -8,26 +8,57 @@ body{
 	padding-top: 100px;
 	background-color: #ba181b;
 	color: lightyellow;
-	font-size: 7.5rem;
+	font-size: 6.5rem;
 }
 
 .triangulo {
-	border-top: 80px solid #ba181b;
+	border-top: 60px solid #ba181b;
 	border-left: 49vw solid transparent;
 	border-right: 49vw solid transparent;
 }
 
 /*---------------------------------*/
 
-.boton-admin{
-	border-radius: 20px !important;
-	box-shadow: 1px 4px 6px 3px #ffffff63;
-	font-weight: 700;
-    font-size: 18px;
-	background-color: white;
-	color: red;
-	max-width: 150px;
+#contenedor-btn-admin{
+	padding-bottom: 60px;
 }
+
+.boton-admin{
+	border-radius: 6px !important;
+	border-color: #a52834;
+	font-weight: 700;
+    font-size: 15px;
+	background-color: #b02a37;
+	color: white;
+	height: 45px;
+	width: 120px;
+	transition: 0.4s;
+}
+
+.boton-admin:hover{
+	box-shadow: 0px 0px 10px 4px #ffffff63;
+}
+
+.boton-card-edit{
+	font-weight: 600;
+    font-size: 25px;
+	color: yellow;
+}
+
+.boton-card-edit:hover{
+	color: yellow;	
+}
+
+.boton-card-elim{
+	font-weight: 600;
+    font-size: 25px;
+	color: red;
+}
+
+.boton-card-elim:hover{
+	color: red;
+}
+
 
 .columna-filtros{
 	background-color: #000000cf;
@@ -43,22 +74,21 @@ body{
 	color: lightyellow;
 	text-shadow: 8px 2px 2px rgb(0 0 0 / 59%);
 	text-decoration: underline red;
-	font-size: 3.5rem;
+	font-size: 2.3rem;
 }
 
 .boton{
-	height: 58px;
-	
+	height: 45px;
+	width: 90px;
 }
 
 .lista-generos label {
 	border-radius: 20px !important;
 	box-shadow: 1px 4px 6px 3px #ffffff63;
 	font-weight: 700;
-    font-size: 18px;
+    font-size: 13px;
 	background-color: white;
 	color: red;
-	max-width: 150px;
 }
 
 .lista-generos .genero-item:hover{
@@ -77,8 +107,8 @@ body{
 .carta{
 	border-radius: 16px;
 	box-shadow: 4px 8px 12px rgba(0,0,0, 0.5);
-	max-width: 400px;
-	min-width: 330px;
+	max-width: 330px;
+	min-width: 300px;
 }
 
 .fondo-backdrop{
@@ -91,7 +121,7 @@ body{
 	background-repeat: no-repeat;
 	background-position: center	;
 	width: calc(100% - 40px);
-	height: 500px;
+	height: 430px;
 	transition: 0.2s;
 }
 
@@ -101,8 +131,8 @@ body{
 
 span{
 	color: lightyellow;
-	font-size: 70%;
-	opacity: 0.6;
+	font-size: 80%;
+	opacity: 0.8;
 }
 
 .display-flex{
@@ -166,7 +196,7 @@ span{
 	}
 	
 	#contenedor-filtros{
-		height: 55px;
+		height: 45px;
 	}
 	
 	.columna-filtros{
@@ -176,17 +206,29 @@ span{
 	}
 	
 	.boton{
-		height: 45px;
-		width: 75px;
+		height: 35px;
+		width: 70px;
 	}
 	
 	.lista-generos label {
 		font-weight: 700;
-	    font-size: 13px;
+	    font-size: 11px;
 	}
 	
 	.titulo-filtro{
-		font-size: 2rem;
+		font-size: 1.6rem;
+	}
+	
+	#contenedor-btn-admin{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	
+	.boton-admin{
+		font-weight: 700;
+	    font-size: 12px;
+		height: 35px;
+		width: 70px;
 	}
 }
 
@@ -209,10 +251,6 @@ span{
 		min-width: 240px;
 	}
 	
-	.lista-generos .genero-item{
-		font-size: 20px;
-	}	
-	
 	.page_navigation a{
 		padding: 12px 16px;
 		margin:2px;
@@ -226,13 +264,13 @@ span{
 	}
 	
 	.triangulo {
-		border-top: 60px solid #ba181b;
+		border-top: 40px solid #ba181b;
 		border-left: 48vw solid transparent;
 		border-right: 48vw solid transparent;
 	}
 	
 	#contenedor-filtros{
-		height: 65px;
+		height: 55px;
 	}
 	
 	.columna-filtros{
@@ -242,17 +280,29 @@ span{
 	}
 	
 	.boton{
-		height: 50px;
-		width: 85px;
+		height: 35px;
+		width: 70px;
 	}
 	
 	.lista-generos label {
-		font-weight: 700;
-	    font-size: 14px;
+		font-weight: 800;
+	    font-size: 11px;
 	}
 	
 	.titulo-filtro{
-		font-size: 2.2rem;
+		font-size: 1.6rem;
+	}
+	
+	#contenedor-btn-admin{
+		padding-bottom: 10px;
+		padding-top: 10px;
+	}
+	
+	.boton-admin{
+		font-weight: 700;
+	    font-size: 13px;
+		height: 40px;
+		width: 90px;
 	}
 }
 
@@ -263,16 +313,17 @@ span{
 	}
 	
 	.fondo-portada{
-		height: 450px;
+		height: 400px;
 	}
 	
 	.carta{
-		min-width: 310px;
+		min-width: 280px;
+		max-width: 300px;
 	}
 	
 	.titulo{
 		padding-top: 80px;
-		font-size: 5.5rem;	
+		font-size: 5rem;	
 	}
 	
 	#contenedor-filtros{
@@ -286,17 +337,22 @@ span{
 	}
 	
 	.boton{
-		height: 50px;
-		width: 100px;
+		height: 40px;
+		width: 75px;
 	}
 	
 	.lista-generos label {
 		font-weight: 700;
-	    font-size: 16px;
+	    font-size: 13px;
 	}
 	
 	.titulo-filtro{
-		font-size: 2.5rem;
+		font-size: 1.8rem;
+	}
+	
+	#contenedor-btn-admin{
+		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 }
 
@@ -307,11 +363,11 @@ span{
 	}
 	
 	.fondo-portada{
-		height: 450px;
+		height: 380px;
 	}
 	
 	.carta{
-		min-width: 280px;
+		min-width: 250px;
 		margin-left: 10px;
 	}
 	
@@ -321,7 +377,7 @@ span{
 	}
 	
 	.titulo-filtro{
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 }
 

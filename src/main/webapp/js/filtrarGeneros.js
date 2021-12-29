@@ -42,8 +42,8 @@ $(document).ready(function() {
 	
 	// AGREGANDO CLASE AL BOTON PULSADO ================================
 	$('.boton').click(function(){
-		$('.boton').removeClass('animate__animated animate__tada ');
-		$(this).addClass('animate__animated animate__tada ');
+		$('.boton').removeClass('animate__animated animate__tada');
+		$(this).addClass('animate__animated animate__tada');
 		
 	});	
 

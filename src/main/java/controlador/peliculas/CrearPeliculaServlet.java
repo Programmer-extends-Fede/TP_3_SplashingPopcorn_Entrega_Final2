@@ -34,25 +34,25 @@ public class CrearPeliculaServlet extends HttpServlet implements Servlet {
 		//validar los datos antes de parsearlos
 		 
 		String titulo = request.getParameter("titulo");
-		Double precio = Double.parseDouble(request.getParameter("precio"));
-		Integer duracion = Integer.parseInt(request.getParameter("duracion"));
-		Integer stock = Integer.parseInt(request.getParameter("stock"));
+		double precio = Double.parseDouble(request.getParameter("precio"));
+		int duracion = Integer.parseInt(request.getParameter("duracion"));
+		int stock = Integer.parseInt(request.getParameter("stock"));
 		String genero = request.getParameter("genero");
 		String descripcion = request.getParameter("descripcion");
 		String urlPortada = request.getParameter("urlPortada");
 		String urlFondo = request.getParameter("urlFondo");
-		Integer anioLanzamiento = Integer.parseInt(request.getParameter("anioLanzamiento"));
+		int anioLanzamiento = Integer.parseInt(request.getParameter("anioLanzamiento"));
 		String lema = request.getParameter("lema");
 
 		Pelicula pelicula = servicioPelicula.crear(titulo, precio, duracion, stock, genero, descripcion, urlPortada,
 				urlFondo, anioLanzamiento, lema);
 
 		if (pelicula.esValida()) {
-			response.sendRedirect("/peliculas");//manda a listar de nuevo las pelis
+			response.sendRedirect("peliculas");//manda a listar de nuevo las pelis
 		} else {
 			request.setAttribute("pelicula", pelicula);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("vistas/peliculas.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/peliculas");
 			dispatcher.forward(request, response);
 		}
 	}

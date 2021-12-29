@@ -1,6 +1,5 @@
 package servicios;
 
-
 import java.util.ArrayList;
 import modelo.Pelicula;
 import persistencia.FabricaDAO;
@@ -10,7 +9,6 @@ public class ServicioPelicula {
 
 	PeliculaDAO peliculaDAO = FabricaDAO.getPeliculaDAO();
 
-	
 	public ArrayList<Pelicula> listar() {
 		return peliculaDAO.cargar();
 	}
@@ -27,7 +25,7 @@ public class ServicioPelicula {
 		return pelicula;
 	}
 
-	public Pelicula editar(int id, String titulo, int precio, int duracion, int stock, String genero,
+	public Pelicula editar(int id, String titulo, double precio, int duracion, int stock, String genero,
 			String descripcion, String urlPortada, String urlFondo, int anioLanzamiento, String lema) {
 		Pelicula pelicula = buscarPor(id);
 
@@ -37,11 +35,17 @@ public class ServicioPelicula {
 		pelicula.setGenero(genero);
 		pelicula.setStock(stock);
 		pelicula.setDescripcion(descripcion);
-		pelicula.setUrlPortada(urlPortada);
-		pelicula.setUrlFondo(urlFondo);
+		if (urlPortada != null) {
+			pelicula.setUrlPortada(urlPortada);
+		}
+		if (urlFondo != null) {
+			pelicula.setUrlFondo(urlFondo);
+		}
 		pelicula.setAnioLanzamiento(anioLanzamiento);
-		pelicula.setLema(lema);
-		
+
+		if (lema != null) {
+			pelicula.setLema(lema);
+		}
 		if (pelicula.esValida()) {
 			peliculaDAO.editar(pelicula);
 		}

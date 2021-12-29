@@ -24,25 +24,16 @@ public class EditarPeliculaServlet extends HttpServlet implements Servlet {
 		this.servicioPelicula = new ServicioPelicula();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		int id = Integer.parseInt(request.getParameter("id"));
-
-		Pelicula pelicula = servicioPelicula.buscarPor(id);
-		request.setAttribute("pelicula", pelicula);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("vistas/pelicula.jsp"); //RUTA AL modal
-		dispatcher.forward(request, response);
-	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		//metodo que valide los datos antes de parsear
 		
-		int id = Integer.parseInt(request.getParameter("id"));//esto no se edita pero lo recibe igual?
+		int id = Integer.parseInt(request.getParameter("id"));
 		String titulo = request.getParameter("titulo");
-		int precio = Integer.parseInt(request.getParameter("precio"));
+		double precio = Double.parseDouble(request.getParameter("precio"));
 		int duracion = Integer.parseInt(request.getParameter("duracion"));
 		int stock = Integer.parseInt(request.getParameter("stock"));
 		String genero = request.getParameter("genero");
@@ -56,11 +47,11 @@ public class EditarPeliculaServlet extends HttpServlet implements Servlet {
 				urlFondo, anioLanzamiento, lema);
 
 		if (pelicula.esValida()) {
-			response.sendRedirect("/peliculas");
+			response.sendRedirect("peliculas");
 		} else {
 			request.setAttribute("pelicula", pelicula);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("vistas/peliculas.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/peliculas");
 			dispatcher.forward(request, response);
 		}
 	}
